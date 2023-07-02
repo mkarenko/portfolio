@@ -1,7 +1,5 @@
-import './index.css';
+import Router from './utils/router';
 
-function App() {
-	return <div className='h-screen bg-gray-900'></div>;
-}
+const App = () => <Router />;
 
 export default App;
