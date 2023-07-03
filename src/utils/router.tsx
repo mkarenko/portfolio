@@ -5,7 +5,7 @@ import {NotFoundPage} from '../pages/notFound.page';
 
 const Router: FC = () => (
 	<Routes>
-		<Route path='/' element={<HomePage />} />
+		<Route path='/home' element={<HomePage />} />
 
 		<Route element={<NotFoundPage />} />
 	</Routes>
