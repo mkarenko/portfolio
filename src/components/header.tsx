@@ -1,17 +1,48 @@
 import {FC} from 'react';
-import logout from '../assets/logout.svg';
+import {useNavigate} from 'react-router-dom';
 
 export const Header: FC = () => {
-	return (
-		<div className='w-full h-44 flex justify-end space-x-7 pt-5 pr-5'>
-			<button className='h-10 flex items-center text-white rounded-3xl p-2'>Home</button>
-			<button className='h-10 flex items-center text-white rounded-3xl p-2'>About Me</button>
-			<button className='h-10 flex items-center text-white rounded-3xl p-2'>My Projects</button>
-			<button className='h-10 flex items-center text-white rounded-3xl p-2'>Contact</button>
-			<button className='h-10 flex items-center text-white rounded-3xl p-2'>
-				Log Out
-				<img alt='logout' src={logout} color='#FFFFFF' className='h-10 ml-2' />
-			</button>
-		</div>
-	);
+  const navigate = useNavigate();
+
+  return (
+    <header className='bg-gray-800 md:sticky top-0 z-10'>
+      <div className='flex flex-wrap p-5 flex-col md:flex-row items-center'>
+        <div
+          className='title-font font-semibold text-2xl text-white md:mb-0 hover:cursor-pointer'
+          onClick={() => navigate('/about')}
+        >
+          Michał Kareńko
+        </div>
+        <nav
+          className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700
+		  flex flex-wrap items-center text-base justify-center'
+        >
+          <div
+            className='py-1 px-3 text-gray-400 focus:outline-none hover:bg-gray-700 hover:text-white rounded cursor-pointer'
+            onClick={() => navigate('/past-work')}
+          >
+            Past Work
+          </div>
+          <div
+            className='py-1 px-3 text-gray-400 focus:outline-none hover:bg-gray-700 hover:text-white rounded cursor-pointer'
+            onClick={() => navigate('/skills')}
+          >
+            Skills
+          </div>
+          <div
+            className='py-1 px-3 text-gray-400 focus:outline-none hover:bg-gray-700 hover:text-white rounded cursor-pointer'
+            onClick={() => navigate('/references')}
+          >
+            Testimonials
+          </div>
+          <div
+            className='py-1 px-3 text-gray-400 focus:outline-none hover:bg-gray-700 hover:text-white rounded cursor-pointer'
+            onClick={() => navigate('/hire-me')}
+          >
+            Hire Me
+          </div>
+        </nav>
+      </div>
+    </header>
+  );
 };
