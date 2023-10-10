@@ -1,5 +1,6 @@
 export const projects = [
   {
+    id: '1',
     title: 'Hear Me',
     subtitle: 'Lorem Impssum',
     description: '',
@@ -9,6 +10,7 @@ export const projects = [
     link: 'https://hearme-app.com/',
   },
   {
+    id: '2',
     title: 'WUB',
     subtitle: 'Werkzeug und Baumaschinen',
     description: '',
@@ -18,6 +20,7 @@ export const projects = [
     link: 'https://app.wubmal.com/home',
   },
   {
+    id: '3',
     title: 'Persoklick',
     subtitle: '',
     description: '',
@@ -27,6 +30,7 @@ export const projects = [
     link: 'https://persoklick-test-env.web.app/',
   },
   {
+    id: '4',
     title: 'More Moda',
     subtitle: '',
     description: '',
@@ -36,6 +40,7 @@ export const projects = [
     link: 'https://app.moremoda.at/',
   },
   {
+    id: '5',
     title: 'Celsion Plus',
     subtitle: '',
     description: '',
@@ -45,6 +50,7 @@ export const projects = [
     link: '',
   },
   {
+    id: '6',
     title: 'Kluu',
     subtitle: 'Kluu Connect',
     description: '',
@@ -54,6 +60,7 @@ export const projects = [
     link: 'https://kluu-connect.com/',
   },
   {
+    id: '7',
     title: 'ImmoCeption',
     subtitle: '',
     description: '',
@@ -63,6 +70,7 @@ export const projects = [
     link: 'https://immoception.net/',
   },
   {
+    id: '8',
     title: 'Immowert4You',
     subtitle: '',
     description: '',
