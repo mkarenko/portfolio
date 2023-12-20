@@ -1,7 +1,7 @@
 import {FC} from 'react';
 
 const HireMePage: FC = () => {
-  return <div className=''></div>;
+  return <div className=''>hire me</div>;
 };
 
 export default HireMePage;

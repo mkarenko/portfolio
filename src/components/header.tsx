@@ -11,11 +11,11 @@ export const Header: FC = () => {
           className='title-font font-semibold text-2xl text-white md:mb-0 hover:cursor-pointer'
           onClick={() => navigate('/about')}
         >
-          Michał Kareńko
+          mike.
         </div>
         <nav
           className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700
-		  flex flex-wrap items-center text-base justify-center'
+		      flex flex-wrap items-center text-base justify-center'
         >
           <div
             className='py-1 px-3 text-gray-400 focus:outline-none hover:bg-gray-700 hover:text-white rounded cursor-pointer'
