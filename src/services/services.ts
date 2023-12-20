@@ -1,6 +1,5 @@
 const gitApiUrl: string = 'https://api.github.com/';
-const accessToken =
-  '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';
+const accessToken = '';
 
 const fetchUserDetail = async (username: string) => {
   try {
