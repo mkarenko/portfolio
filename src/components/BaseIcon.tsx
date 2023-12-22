@@ -6,7 +6,7 @@ type IconComponentProps = {
   classCss?: string;
 };
 
-const IconComponent: FC<IconComponentProps> = ({icon, color, classCss}) => {
+const BaseIcon: FC<IconComponentProps> = ({icon, color, classCss}) => {
   const cleanedIcon = icon.replace('data:image/svg+xml;utf8,', '');
 
   return (
@@ -18,4 +18,4 @@ const IconComponent: FC<IconComponentProps> = ({icon, color, classCss}) => {
   );
 };
 
-export default IconComponent;
+export default BaseIcon;

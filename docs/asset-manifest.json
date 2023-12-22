@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.80630a73.css",
+    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.f313ecfc.js",
+    "static/js/651.24b2ed5d.chunk.js": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js",
+    "static/media/avatar.png": "https://mkarenko.github.io/portfolio/static/media/avatar.85a28cb18f081fe83fe2.png",
+    "index.html": "https://mkarenko.github.io/portfolio/index.html",
+    "main.80630a73.css.map": "https://mkarenko.github.io/portfolio/static/css/main.80630a73.css.map",
+    "main.f313ecfc.js.map": "https://mkarenko.github.io/portfolio/static/js/main.f313ecfc.js.map",
+    "651.24b2ed5d.chunk.js.map": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.80630a73.css",
+    "static/js/main.f313ecfc.js"
+  ]
+}

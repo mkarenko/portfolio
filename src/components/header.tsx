@@ -5,8 +5,8 @@ export const Header: FC = () => {
   const navigate = useNavigate();
 
   return (
-    <header className='bg-gray-800 md:sticky top-0 z-10'>
-      <div className='flex flex-wrap p-5 flex-col md:flex-row items-center'>
+    <header className='w-full bg-gray-800 md:sticky top-0 z-10'>
+      <div className='w-full flex flex-wrap p-5 flex-col md:flex-row items-center'>
         <div
           className='title-font font-semibold text-2xl text-white md:mb-0 hover:cursor-pointer'
           onClick={() => navigate('/about')}

@@ -52,7 +52,7 @@ const GitHubCalendar: FC<Props> = ({contributionData}) => {
   };
 
   return (
-    <div className='flex'>
+    <div className='flex space-x-1'>
       {contributionData &&
         [contributionData.weeks.slice(0, 28), contributionData.weeks.slice(28)].map(
           (row, rowIndex) => (
@@ -70,7 +70,7 @@ const GitHubCalendar: FC<Props> = ({contributionData}) => {
                       {week.contributionDays.map((day, dayIndex: number) => (
                         <div
                           key={dayIndex}
-                          className='w-4 h-4 rounded-lg'
+                          className='w-4 h-4 rounded-lg my-px'
                           style={{
                             backgroundColor: day.contributionCount === 0 ? '#434552' : day.color,
                           }}
@@ -78,7 +78,7 @@ const GitHubCalendar: FC<Props> = ({contributionData}) => {
                           onMouseOut={() => handleDayHover('')}
                         >
                           {hoveredDate === day.date && (
-                            <div className='absolute bg-slate-700 p-2 rounded-lg shadow text-white'>
+                            <div className='absolute bg-slate-700 p-2 rounded-lg shadow text-secondary'>
                               <p>Date: {day.date}</p>
                               <p>Contributions: {day.contributionCount}</p>
                             </div>

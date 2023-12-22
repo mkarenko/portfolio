@@ -4,11 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        mirage: '#141727',
-        liteMirage: '#2c2e3d',
-        eastBay: '#40497c',
-        moodyBlue: '#6b7bd1',
-        offWhite: '#e9dcc5',
+        primary: '#141727',
+        secondary: '#abc2e5',
+        offWhite: '#f3f5fb',
       },
     },
   },
