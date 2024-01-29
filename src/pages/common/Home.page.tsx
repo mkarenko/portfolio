@@ -1,9 +1,9 @@
 import {FC, useEffect, useRef, useState} from 'react';
 
-import {gitHubServices} from '../../services/services';
+import {gitHubServices} from '../../services/github.service';
 import GitHubCalendar from '../../components/calendar/GitHubCalendar';
 import {ContributionType} from '../../types/contribution.type';
-import Loader from '../../loader/loader';
+import Loader from '../../components/loader/loader';
 import {logoGithub, logoLinkedin, search} from 'ionicons/icons';
 import BaseButton from '../../components/buttons/BaseButton';
 import BaseIcon from '../../components/BaseIcon';

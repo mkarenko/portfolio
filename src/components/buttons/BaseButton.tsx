@@ -6,7 +6,7 @@ type BaseButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(({children, ...props}, ref) => {
   return (
-    <button ref={ref} {...props}>
+    <button {...props} ref={ref}>
       {children}
     </button>
   );

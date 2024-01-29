@@ -19,7 +19,7 @@ export const Header: FC = () => {
         >
           <div
             className='py-1 px-3 text-gray-400 focus:outline-none hover:bg-gray-700 hover:text-white rounded cursor-pointer'
-            onClick={() => navigate('/past-work')}
+            onClick={() => navigate('/projects')}
           >
             Past Work
           </div>
@@ -37,9 +37,9 @@ export const Header: FC = () => {
           </div>
           <div
             className='py-1 px-3 text-gray-400 focus:outline-none hover:bg-gray-700 hover:text-white rounded cursor-pointer'
-            onClick={() => navigate('/hire-me')}
+            onClick={() => navigate('/contact')}
           >
-            Hire Me
+            Contact Me
           </div>
         </nav>
       </div>

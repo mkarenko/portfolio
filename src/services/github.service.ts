@@ -1,6 +1,6 @@
 const gitApiUrl: string = 'https://api.github.com/';
 const accessToken =
-  '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';
+  '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';
 
 const fetchUserDetail = async (username: string) => {
   try {
@@ -15,7 +15,6 @@ const fetchUserDetail = async (username: string) => {
     }
 
     const userData = await res.json();
-
     return userData;
   } catch (error: any) {
     console.error('There was error fetching user from GitHub:', error);
@@ -25,7 +24,7 @@ const fetchUserDetail = async (username: string) => {
 
 const fetchGitHubContribution = async (username: string) => {
   const headers = {
-    Authorization: `bearer ${accessToken}`,
+    Authorization: `Bearer ${accessToken}`,
   };
 
   const body = {

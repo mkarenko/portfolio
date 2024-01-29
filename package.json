@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "homepage": "https://mkarenko.github.io/portfolio",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.0.0-0",
     "@babel/plugin-syntax-flow": "^7.14.5",

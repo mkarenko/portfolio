@@ -2,9 +2,10 @@ import {FC} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {Header} from '../components/Header';
 import PastWorkPage from '../pages/apps/PastWork.page';
-import HireMePage from '../pages/common/HireMe.page';
+import ContactPage from '../pages/common/Contact.page';
 import HomePage from '../pages/common/Home.page';
 import NotFoundPage from '../pages/common/NotFound.page';
+import SkillsPage from '../pages/common/skills/Skills.page';
 
 const Router: FC = () => (
   <>
@@ -12,11 +13,11 @@ const Router: FC = () => (
     <Routes>
       <Route path='/' element={<HomePage />} />
 
-      <Route path='/about' element={<HireMePage />} />
-      <Route path='/past-work' element={<PastWorkPage />} />
-      <Route path='/skills' element={<HireMePage />} />
-      <Route path='/references' element={<HireMePage />} />
-      <Route path='/hire-me' element={<HireMePage />} />
+      <Route path='/about' element={<ContactPage />} />
+      <Route path='/projects' element={<PastWorkPage />} />
+      <Route path='/skills' element={<SkillsPage />} />
+      <Route path='/references' element={<ContactPage />} />
+      <Route path='/contact' element={<ContactPage />} />
 
       <Route path='*' element={<NotFoundPage />} />
     </Routes>
