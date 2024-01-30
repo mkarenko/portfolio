@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.fe25bc04.css",
+    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.61b4365f.js",
+    "static/js/651.24b2ed5d.chunk.js": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js",
+    "static/media/avatar.png": "https://mkarenko.github.io/portfolio/static/media/avatar.85a28cb18f081fe83fe2.png",
+    "static/media/supabase.svg": "https://mkarenko.github.io/portfolio/static/media/supabase.9bfc7649a6c73d378f479e4c72d23cde.svg",
+    "static/media/flutter.svg": "https://mkarenko.github.io/portfolio/static/media/flutter.1d40361ca878d6c61c63e1188ebe81e2.svg",
+    "static/media/ionic.svg": "https://mkarenko.github.io/portfolio/static/media/ionic.0cf53a18585a391bd42a367f377629b6.svg",
+    "static/media/git.svg": "https://mkarenko.github.io/portfolio/static/media/git.a485e25cc7e2e6afe01679f14dfca650.svg",
+    "static/media/github.svg": "https://mkarenko.github.io/portfolio/static/media/github.4d86ba9c6641fe5ba95838434f5e75b8.svg",
+    "static/media/asana.svg": "https://mkarenko.github.io/portfolio/static/media/asana.0a8adb72d4f64fbebeb6a2177aa357d8.svg",
+    "static/media/bitbucket.svg": "https://mkarenko.github.io/portfolio/static/media/bitbucket.d391ca23a0b7e45467c45487e8eb6449.svg",
+    "index.html": "https://mkarenko.github.io/portfolio/index.html",
+    "static/media/tailwindcss.svg": "https://mkarenko.github.io/portfolio/static/media/tailwindcss.79614a5f61617ba49a0891494521226b.svg",
+    "static/media/firebase.svg": "https://mkarenko.github.io/portfolio/static/media/firebase.82a35fc0b90d124a8e7333989f767fd3.svg",
+    "static/media/recoil.svg": "https://mkarenko.github.io/portfolio/static/media/recoil.b6d6464c4a11ca66215b1336c4bf3f64.svg",
+    "static/media/react.svg": "https://mkarenko.github.io/portfolio/static/media/react.3a03708e42481565259f85329d20b695.svg",
+    "static/media/react_native.svg": "https://mkarenko.github.io/portfolio/static/media/react_native.3a03708e42481565259f85329d20b695.svg",
+    "main.fe25bc04.css.map": "https://mkarenko.github.io/portfolio/static/css/main.fe25bc04.css.map",
+    "main.61b4365f.js.map": "https://mkarenko.github.io/portfolio/static/js/main.61b4365f.js.map",
+    "651.24b2ed5d.chunk.js.map": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe25bc04.css",
+    "static/js/main.61b4365f.js"
+  ]
+}
