@@ -16,25 +16,25 @@ const HomePage: FC = () => {
 
   const [loading, setLoading] = useState<boolean>(true);
 
-  const [username, setUsername] = useState<string>('mkarenko');
-  const [contributionData, setContributionData] = useState<ContributionType | undefined>();
+  const [userName, setUserName] = useState<string>('mkarenko');
+  const [contributions, setContributions] = useState<ContributionType | undefined>();
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
 
-      const conData = await gitHubServices.fetchGitHubContribution(username);
-      setContributionData(conData.data.user);
+      const data = await gitHubServices.fetchGitHubContribution(userName);
+      setContributions(data.data.user);
 
       setLoading(false);
     };
 
     fetchData();
-  }, [username]);
+  }, [userName]);
 
   const changeUsername = () => {
     if (inputRef.current) {
-      setUsername(inputRef.current.value);
+      setUserName(inputRef.current.value);
     }
   };
 
@@ -71,29 +71,29 @@ const HomePage: FC = () => {
           </div>
 
           <div className='w-full flex flex-col'>
-            {username != null && (
+            {userName != null && (
               <>
                 <div className='flex-col mt-5 text-lg'>
-                  {username === 'mkarenko' && ''}
-                  {username !== 'mkarenko' && (
+                  {userName === 'mkarenko' && ''}
+                  {userName !== 'mkarenko' && (
                     <div className='flex'>
                       Contributions of user:&nbsp;
-                      <div className='font-bold'>{contributionData?.name}</div>
+                      <div className='font-bold'>{contributions?.name}</div>
                     </div>
                   )}
                   <div className='flex'>
                     Total contributions:&nbsp;
                     <div className='font-bold'>
                       {
-                        contributionData?.contributionsCollection.contributionCalendar
+                        contributions?.contributionsCollection.contributionCalendar
                           .totalContributions
                       }
                     </div>
                   </div>
                 </div>
-                {contributionData && (
+                {contributions && (
                   <GitHubCalendar
-                    contributionData={contributionData.contributionsCollection.contributionCalendar}
+                    contributionData={contributions.contributionsCollection.contributionCalendar}
                   />
                 )}
               </>
@@ -115,7 +115,7 @@ const HomePage: FC = () => {
               </button>
             </div>
 
-            {username === null && <div className='text-xl text-red-300'>User not found</div>}
+            {userName === null && <div className='text-xl text-red-300'>User not found</div>}
           </div>
 
           <div className='absolute right-5 bottom-7 w-24 flex justify-evenly'>

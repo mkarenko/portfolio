@@ -5,7 +5,7 @@ import PastWorkPage from '../pages/apps/PastWork.page';
 import ContactPage from '../pages/common/Contact.page';
 import HomePage from '../pages/common/Home.page';
 import NotFoundPage from '../pages/common/NotFound.page';
-import SkillsPage from '../pages/common/skills/Skills.page';
+import SkillsPage from '../pages/skills/Skills.page';
 
 const Router: FC = () => (
   <>

@@ -1,6 +1,6 @@
 import {FC, useRef, useState} from 'react';
 
-import MousePopUp from '../../../components/MousePopUp';
+import MousePopUp from '../../components/MousePopUp';
 
 type Props = {
   name: string;

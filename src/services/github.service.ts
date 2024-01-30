@@ -1,12 +1,11 @@
 const gitApiUrl: string = 'https://api.github.com/';
-const accessToken =
-  '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';
+const token = process.env.REACT_APP_GITHUB_TOKEN;
 
 const fetchUserDetail = async (username: string) => {
   try {
     const res = await fetch(gitApiUrl + `users/${username}`, {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${token}`,
       },
     });
 
@@ -23,8 +22,10 @@ const fetchUserDetail = async (username: string) => {
 };
 
 const fetchGitHubContribution = async (username: string) => {
+  console.log(token);
+
   const headers = {
-    Authorization: `Bearer ${accessToken}`,
+    Authorization: `Bearer ${token}`,
   };
 
   const body = {
