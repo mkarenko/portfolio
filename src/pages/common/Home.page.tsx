@@ -24,6 +24,7 @@ const HomePage: FC = () => {
       setLoading(true);
 
       const data = await gitHubServices.fetchGitHubContribution(userName);
+      console.log(data.data);
       setContributions(data.data.user);
 
       setLoading(false);
