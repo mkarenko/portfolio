@@ -15,17 +15,13 @@ const HomePage: FC = () => {
 
 	const theme = useRecoilValue(themeAtom);
 
-	const [loading, setLoading] = useState<boolean>(true);
+	const [, setLoading] = useState<boolean>(true);
 	const [userName, setUserName] = useState<string>('mkarenko');
-	const [contributions, setContributions] = useState<ContributionType | undefined>();
+	const [contributions] = useState<ContributionType | undefined>();
 
 	useEffect(() => {
 		const fetchData = async () => {
 			setLoading(true);
-
-			// const dat = await gitHubServices.fetchGitHubContribution(userName);
-			// setContributions(data.data.user);
-
 			setLoading(false);
 		};
 
@@ -97,11 +93,7 @@ const HomePage: FC = () => {
 						}}
 					/>
 					<button onClick={changeUsername}>
-						<BaseIcon
-							icon={search}
-							color='#e9dcc5'
-							classCss='w-8 h-8'
-						/>
+						<BaseIcon icon={search} color='#e9dcc5' classCss='w-8 h-8' />
 					</button>
 				</div>
 
@@ -113,20 +105,14 @@ const HomePage: FC = () => {
 					className='w-8 h-8 transition duration-300 transform rounded hover:scale-110'
 					onClick={() => (window.location.href = githubURL)}
 				>
-					<BaseIcon
-						icon={logoGithub}
-						color={`${theme === 'dark' ? 'white' : 'black'}`}
-					/>
+					<BaseIcon icon={logoGithub} color={`${theme === 'dark' ? 'white' : 'black'}`} />
 				</BaseButton>
 
 				<BaseButton
 					className='w-8 h-8 transition duration-300 transform rounded hover:scale-110'
 					onClick={() => (window.location.href = linkedinURL)}
 				>
-					<BaseIcon
-						icon={logoLinkedin}
-						color={`${theme === 'dark' ? 'white' : 'black'}`}
-					/>
+					<BaseIcon icon={logoLinkedin} color={`${theme === 'dark' ? 'white' : 'black'}`} />
 				</BaseButton>
 
 				{/* I have to think about that one. For now,

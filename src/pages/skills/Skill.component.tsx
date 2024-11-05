@@ -1,4 +1,4 @@
-import {FC, useRef, useState} from 'react';
+import {FC} from 'react';
 
 type Props = {
 	name: string;
