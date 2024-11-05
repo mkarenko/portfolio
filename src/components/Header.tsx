@@ -9,6 +9,9 @@ import Discoball from './discoball/Discoball';
 import '../theme/neonButton.css';
 import '../theme/themeSwitcher.css';
 import '../components/discoball/discoball.css';
+import BaseButton from './buttons/BaseButton';
+import BaseIcon from './BaseIcon';
+import {home} from 'ionicons/icons';
 
 export const Header: FC = () => {
   const navigate = useNavigate();
@@ -29,7 +32,7 @@ export const Header: FC = () => {
       }, 3000);
     }
 
-    if (pressCount === 5) {
+    if (pressCount === 5 && theme === 'dark') {
       setDiscoMode(true);
       setPressCount(0);
     }
@@ -80,7 +83,8 @@ export const Header: FC = () => {
     });
   };
 
-  const toggleLights = (): void => {
+  /// Have to fix turning lights on while theme light is active
+  const toggleLights = () => {
     setNeonOn((prevValue) => {
       setPressCount((prevCount) => prevCount + 1);
       return !prevValue;
@@ -89,6 +93,7 @@ export const Header: FC = () => {
 
   const shutDownTheDisco = (): void => {
     setDiscoMode(false);
+    setNeonOn(false);
   };
 
   const handleKeyPress = (e: KeyboardEvent) => {
@@ -101,9 +106,15 @@ export const Header: FC = () => {
     'hover:text-white rounded cursor-pointer';
 
   return (
-    <header className='relative top-0 z-10 flex items-center w-full p-5 bg-gray-200 dark:bg-gray-900'>
+    <header className='relative top-0 z-10 flex items-center w-full p-5 bg-gray-500 dark:bg-gray-900'>
       <nav className='relative flex items-center justify-between w-full text-base'>
         <div className='flex items-center justify-center'>
+          <BaseButton
+            className='w-8 h-8 transition duration-300 transform rounded hover:scale-110'
+            onClick={() => navigate('/')}
+          >
+            <BaseIcon icon={home} color='white' />
+          </BaseButton>
           <div className={tabStyle} onClick={() => navigate('/projects')}>
             Past Work
           </div>
@@ -119,14 +130,17 @@ export const Header: FC = () => {
         </div>
         <div className='absolute left-0 right-0 mx-auto w-fit'>
           <div
+            hidden={theme === 'light'}
             id='neon'
             className='neon-button hover:cursor-pointer'
-            onClick={() => navigate('/about')}>
-            mkarenko
+            onClick={() => navigate('/hire-me')}
+          >
+            hire me
           </div>
         </div>
         <div>
           <input
+            hidden={theme === 'light'}
             type='checkbox'
             checked={neonOn}
             className='l hover:cursor-pointer'

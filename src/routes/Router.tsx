@@ -14,6 +14,7 @@ const Router: FC = () => (
       <Route path='/' element={<HomePage />} />
 
       <Route path='/about' element={<ContactPage />} />
+      <Route path='/hire-me' element={<ContactPage />} />
       <Route path='/projects' element={<ProjectsPage />} />
       <Route path='/skills' element={<SkillsPage />} />
       <Route path='/references' element={<ContactPage />} />
