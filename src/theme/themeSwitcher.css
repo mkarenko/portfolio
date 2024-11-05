@@ -1,0 +1,41 @@
+.t {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5em;
+    font-size: 1em;
+    border-radius: 0.75em;
+    box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.3) inset;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+    padding: 0.15em;
+    width: 3em;
+    height: 1.5em;
+    transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transform: rotate(-90deg);
+}
+
+.t:before {
+    content: '';
+    display: block;
+    background-image: url('../assets/dark.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.2em;
+    height: 1.2em;
+    transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+    z-index: 1;
+}
+
+.t:checked {
+    background-color: rgba(0, 0, 0, 0.45);
+    box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.1) inset;
+}
+
+.t:checked:before {
+    background-image: url('../assets/light.svg');
+    transform: translateX(125%);
+}

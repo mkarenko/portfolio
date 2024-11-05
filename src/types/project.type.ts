@@ -1,9 +1,13 @@
 export type Project = {
   id: number;
   name: string;
+  description: string;
   language: string;
   framework: string;
-  platform: 'android' | 'ios' | 'web';
-  description: string;
-  images: any[];
+  technologies: number[];
+  icon: string;
+  logo: string;
+  website: string;
+  android?: string;
+  ios?: string;
 };

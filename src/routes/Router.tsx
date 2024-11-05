@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {Header} from '../components/Header';
-import PastWorkPage from '../pages/apps/PastWork.page';
+import ProjectsPage from '../pages/projects/Projects.page';
 import ContactPage from '../pages/common/Contact.page';
 import HomePage from '../pages/common/Home.page';
 import NotFoundPage from '../pages/common/NotFound.page';
@@ -14,7 +14,7 @@ const Router: FC = () => (
       <Route path='/' element={<HomePage />} />
 
       <Route path='/about' element={<ContactPage />} />
-      <Route path='/projects' element={<PastWorkPage />} />
+      <Route path='/projects' element={<ProjectsPage />} />
       <Route path='/skills' element={<SkillsPage />} />
       <Route path='/references' element={<ContactPage />} />
       <Route path='/contact' element={<ContactPage />} />

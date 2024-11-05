@@ -28,13 +28,12 @@ const SkillComponent: FC<Props> = ({name, logo, language, description, url}) => 
   return (
     <div
       ref={mouse}
-      className='relative'
+      className='relative bg-slate-400 bg-'
       onMouseMove={updatePosition}
       onMouseOver={() => setIsHovering(true)}
       onMouseOut={() => setIsHovering(false)}
-      onClick={() => (window.location.href = url)}
-    >
-      <div className='flex-col space-y-2 cursor-pointer'>
+      onClick={() => (window.location.href = url)}>
+      <div className='flex-col space-y-2 cursor-pointer text-white'>
         <div className='flex'>
           <img alt='bitbucket_logo' className='w-14 h-14 mr-5' src={logo} />
           <div className='flex'>
