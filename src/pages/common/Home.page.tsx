@@ -1,4 +1,4 @@
-import {FC, useRef, useState} from 'react';
+import {FC, useEffect, useRef, useState} from 'react';
 
 import GitHubCalendar from '../../components/calendar/GitHubCalendar';
 import {ContributionType} from '../../types/contribution.type';
@@ -9,6 +9,7 @@ import BaseIcon from '../../components/BaseIcon';
 import {githubUrl, linkedinUrl} from '../../utils/constants';
 
 import avatar from '../../assets/avatar.png';
+import {gitHubServices} from '../../services/github.service';
 
 const HomePage: FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -18,19 +19,19 @@ const HomePage: FC = () => {
   const [userName, setUserName] = useState<string>('mkarenko');
   const [contributions, setContributions] = useState<ContributionType | undefined>();
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoading(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
 
-  //     const data = await gitHubServices.fetchGitHubContribution(userName);
-  //     console.log(data.data);
-  //     setContributions(data.data.user);
+      const data = await gitHubServices.fetchGitHubContribution(userName);
+      console.log(data.data);
+      setContributions(data.data.user);
 
-  //     setLoading(false);
-  //   };
+      setLoading(false);
+    };
 
-  //   fetchData();
-  // }, [userName]);
+    fetchData();
+  }, [userName]);
 
   const changeUsername = () => {
     if (inputRef.current) {

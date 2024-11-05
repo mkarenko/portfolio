@@ -1,14 +1,9 @@
 const gitApiUrl: string = 'https://api.github.com/';
-// const token = process.env.REACT_APP_GITHUB_TOKEN;
-const token =
-  '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';
 
 const fetchUserDetail = async (username: string) => {
   try {
     const res = await fetch(gitApiUrl + `users/${username}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: {},
     });
 
     if (!res.ok) {
@@ -25,7 +20,7 @@ const fetchUserDetail = async (username: string) => {
 
 const fetchGitHubContribution = async (username: string) => {
   const headers = {
-    Authorization: `bearer ${token}`,
+    'Content-Type': 'application/json', // Dodaj ten nagłówek, aby wskazać, że wysyłasz JSON
   };
 
   const body = {
@@ -52,17 +47,21 @@ const fetchGitHubContribution = async (username: string) => {
   };
 
   try {
-    const res = await fetch(gitApiUrl + 'graphql', {
+    const res = await fetch('https://api.github.com/graphql', {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(body),
     });
 
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
     const data = await res.json();
 
     return data;
   } catch (error: any) {
-    console.error('There was error fetching contribution from GitHub:', error);
+    console.error('There was an error fetching contribution from GitHub:', error);
     throw error;
   }
 };
