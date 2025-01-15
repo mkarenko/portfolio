@@ -5,8 +5,8 @@ import {skills} from '../../constants/skills';
 
 const SkillsPage: FC = () => (
 	<>
-		<div className='grid gap-8 p-16 xl:grid-cols-2 justify-items-center'>
-			{skills.map((s) => (
+		{skills.map((s) => (
+			<div key={s.id} className='flex flex-col items-center justify-between w-full h-full p-10'>
 				<SkillComponent
 					key={s.id}
 					name={s.name}
@@ -14,8 +14,8 @@ const SkillsPage: FC = () => (
 					url={s.website}
 					description={s.description}
 				/>
-			))}
-		</div>
+			</div>
+		))}
 	</>
 );
 
