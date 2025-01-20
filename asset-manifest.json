@@ -1,12 +1,11 @@
 {
   "files": {
-    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.f439e0ec.css",
-    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.ab01ae37.js",
+    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.d7ef9973.css",
+    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.3e70753e.js",
     "static/js/651.24b2ed5d.chunk.js": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js",
-    "static/media/avatar.png": "https://mkarenko.github.io/portfolio/static/media/avatar.46fd7e177aa689560b70.png",
+    "static/media/cv_pl.pdf": "https://mkarenko.github.io/portfolio/static/media/cv_pl.84e95c27aa86e6372a06.pdf",
+    "static/media/cv_en.pdf": "https://mkarenko.github.io/portfolio/static/media/cv_en.3a786a32e38948cd0605.pdf",
     "static/media/pdf.worker.min.mjs": "https://mkarenko.github.io/portfolio/static/media/pdf.worker.min.2a1f575db5df84b52c4b.mjs",
-    "static/media/cv_pl.pdf": "https://mkarenko.github.io/portfolio/static/media/cv_pl.96823cd69a79d5ec8c83.pdf",
-    "static/media/cv_en.pdf": "https://mkarenko.github.io/portfolio/static/media/cv_en.cefa0b3a2de760726dc5.pdf",
     "static/media/api.png": "https://mkarenko.github.io/portfolio/static/media/api.aceeff496910c356de58.png",
     "static/media/persoklick.svg": "https://mkarenko.github.io/portfolio/static/media/persoklick.e5c2bee5385a7b11ed5a9eb63e5eb87b.svg",
     "static/media/supabase.svg": "https://mkarenko.github.io/portfolio/static/media/supabase.a7c08aff547b12db0cce99366bda7d57.svg",
@@ -16,7 +15,6 @@
     "static/media/github.svg": "https://mkarenko.github.io/portfolio/static/media/github.5453bd5795d05fbd44e031cb21db2d7c.svg",
     "static/media/asana.svg": "https://mkarenko.github.io/portfolio/static/media/asana.0a8adb72d4f64fbebeb6a2177aa357d8.svg",
     "index.html": "https://mkarenko.github.io/portfolio/index.html",
-    "static/media/light.svg": "https://mkarenko.github.io/portfolio/static/media/light.c6a31cc811385b4bebd3.svg",
     "static/media/bitbucket.svg": "https://mkarenko.github.io/portfolio/static/media/bitbucket.d391ca23a0b7e45467c45487e8eb6449.svg",
     "static/media/tailwindcss.svg": "https://mkarenko.github.io/portfolio/static/media/tailwindcss.79614a5f61617ba49a0891494521226b.svg",
     "static/media/firebase.svg": "https://mkarenko.github.io/portfolio/static/media/firebase.82a35fc0b90d124a8e7333989f767fd3.svg",
@@ -24,17 +22,15 @@
     "static/media/spinner.svg": "https://mkarenko.github.io/portfolio/static/media/spinner.49f5a74901b5763e14a79bf77d6b5849.svg",
     "static/media/recoil.svg": "https://mkarenko.github.io/portfolio/static/media/recoil.6ccad09be17268d36a25202094284bca.svg",
     "static/media/ios.svg": "https://mkarenko.github.io/portfolio/static/media/ios.5635c45c68ce706bb98553686268d922.svg",
-    "static/media/information.svg": "https://mkarenko.github.io/portfolio/static/media/information.47322d33ec82b678028abe7f96213655.svg",
     "static/media/react.svg": "https://mkarenko.github.io/portfolio/static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
     "static/media/react_native.svg": "https://mkarenko.github.io/portfolio/static/media/react_native.928f956d9c8ebcffb98a8e917154a81a.svg",
-    "static/media/dark.svg": "https://mkarenko.github.io/portfolio/static/media/dark.0b2d8fa7614511aab790.svg",
     "static/media/checkmark.svg": "https://mkarenko.github.io/portfolio/static/media/checkmark.a35b71352778efa2e39a86af94bc69f1.svg",
-    "main.f439e0ec.css.map": "https://mkarenko.github.io/portfolio/static/css/main.f439e0ec.css.map",
-    "main.ab01ae37.js.map": "https://mkarenko.github.io/portfolio/static/js/main.ab01ae37.js.map",
+    "main.d7ef9973.css.map": "https://mkarenko.github.io/portfolio/static/css/main.d7ef9973.css.map",
+    "main.3e70753e.js.map": "https://mkarenko.github.io/portfolio/static/js/main.3e70753e.js.map",
     "651.24b2ed5d.chunk.js.map": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f439e0ec.css",
-    "static/js/main.ab01ae37.js"
+    "static/css/main.d7ef9973.css",
+    "static/js/main.3e70753e.js"
   ]
 }
