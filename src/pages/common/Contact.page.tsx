@@ -2,6 +2,7 @@ import {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 
 import emailjs from 'emailjs-com';
 import BaseIcon from '../../components/BaseIcon';
+import BaseButton from '../../components/buttons/BaseButton';
 import CaptchaModal from '../../components/CaptchaModal';
 import BaseInput from '../../components/inputs/BaseInput';
 import BaseSelect from '../../components/inputs/BaseSelect';
@@ -107,48 +108,53 @@ const ContactPage = () => {
 
   return (
     <div className='w-full h-full flex flex-col justify-center items-center gap-y-10'>
-      <div className='h-fit space-y-3 p-3 text-white bg-slate-500 dark:bg-slate-900'>
+      <div className='h-fit space-y-3 p-3 bg-card border-border border-y-2'>
         <div className='font-semibold text-xl text-center'>
           You can call me on my mobile, send me mail or message me on LinkedIn. I also created this
           form. After filling and sending, I'll receive your contact info. If the form is sent
           successfully, you'll get a confirmation on the email below.
         </div>
 
-        <div className='flex justify-evenly gap-4'>
-          <div>
-            <a
-              href='tel:+48692566688'
-              className='flex items-center gap-x-2 text-sm transition-transform duration-300
-              hover:scale-110'
-            >
-              <BaseIcon icon={phonePortrait} classCss='w-6' />
+        <div className='flex justify-evenly gap-4 text-sm text-white'>
+          <div
+            className='rounded p-2 bg-primary hover:bg-accent transition-transform duration-300
+            hover:scale-110'
+          >
+            <a href='tel:+48692566688' className='flex items-center gap-x-2'>
+              <BaseIcon icon={phonePortrait} color='white' classCss='w-6' />
               +48 692 566 688
             </a>
           </div>
-          <div>
+          <div
+            className='rounded p-2 bg-primary hover:bg-accent transition-transform duration-300
+            hover:scale-110'
+          >
             <a
               href='mailto:m.karenko@outlook.com'
-              className='flex items-center gap-x-2 text-sm transition-transform duration-300
+              className='flex items-center gap-x-2 transition-transform duration-300
               hover:scale-110'
             >
-              <BaseIcon icon={mail} classCss='w-6' />
+              <BaseIcon icon={mail} color='white' classCss='w-6' />
               m.karenko@outlook.com
             </a>
           </div>
-          <div>
+          <div
+            className='rounded p-2 bg-primary hover:bg-accent transition-transform duration-300
+            hover:scale-110'
+          >
             <a
               href='https://www.linkedin.com/in/m-karenko/'
-              className='flex items-center gap-x-2 text-sm transition-transform duration-300
+              className='flex items-center gap-x-2 transition-transform duration-300
               hover:scale-110'
             >
-              <BaseIcon icon={logoLinkedin} classCss='w-6' />
+              <BaseIcon icon={logoLinkedin} color='white' classCss='w-6' />
               Linkedin
             </a>
           </div>
         </div>
       </div>
 
-      <form className='w-1/3 flex flex-col gap-y-3 py-3 px-5 text-white rounded-xl bg-slate-500 dark:bg-slate-900'>
+      <form className='w-1/3 flex flex-col gap-y-3 py-3 px-5 rounded-xl bg-card border-border border-2'>
         <div className='w-full flex justify-center'>
           <BaseInput
             type='text'
@@ -231,13 +237,14 @@ const ContactPage = () => {
             Inputs marked with * are optional, and aren't needed to complete form
           </div>
         </div>
+
         {showModal && <CaptchaModal isOpen={showModal} setIsOpen={setShowModal} />}
-        <button
+
+        <BaseButton
           type='submit'
           disabled={!formReady}
-          className='flex w-auto px-5 py-2 mx-auto font-semibold
-          text-black bg-blue-200 border rounded-2xl
-          disabled:bg-gray-500 disabled:border-0 disabled:text-white disabled:cursor-not-allowed'
+          className='flex w-fit mx-auto px-4 py-2 font-semibold text-light  bg-primary rounded
+          disabled:bg-gray disabled:text-white disabled:cursor-not-allowed'
           onClick={handleSubmit}
         >
           {!status && 'Send'}
@@ -253,7 +260,7 @@ const ContactPage = () => {
               <div>Sent</div>
             </div>
           )}
-        </button>
+        </BaseButton>
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 import BaseIcon from '../../components/BaseIcon';
 import BaseButton from '../../components/buttons/BaseButton';
 import GitHubCalendar from '../../components/calendar/GitHubCalendar';
+import Cubes from '../../components/cubes/Cubes';
 import {ContributionType} from '../../types/contribution.type';
 import {githubURL, linkedinURL} from '../../utils/constants';
 
@@ -31,11 +32,8 @@ const HomePage = () => {
   };
 
   return (
-    <div
-      className='w-full px-24 py-10 space-y-20 text-black dark:text-white'
-      style={{height: 'calc(100vh - 80px)'}}
-    >
-      <div className='flex items-center justify-between w-full'>
+    <div className='w-full px-24 py-10 space-y-20'>
+      <div className='w-full flex items-center justify-between'>
         <div className='flex flex-col w-3/5 gap-2'>
           <div className='text-7xl'>Hi, I'm Michał Kareńko</div>
           <div className='flex justify-center text-xl'>(...but You can call me Mike)</div>
@@ -46,10 +44,10 @@ const HomePage = () => {
             of libraries that I used for that website:
           </div>
         </div>
-
-        {/* Avatar */}
-        <div className='w-[400px] blurred' />
       </div>
+
+      {/* 3D skill cubes */}
+      <Cubes />
 
       <div className='flex flex-col w-full'>
         {userName != null && (
@@ -83,7 +81,7 @@ const HomePage = () => {
         <div className='flex justify-start h-8 space-x-2'>
           <input
             ref={inputRef}
-            className='w-1/4 p-2 rounded-xl'
+            className='w-1/4 p-2 rounded-xl bg-primary'
             onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
               if (e.key === 'Enter') changeUsername();
             }}
@@ -93,10 +91,10 @@ const HomePage = () => {
           </button>
         </div>
 
-        {userName === null && <div className='text-xl text-red-300'>User not found</div>}
+        {userName === null && <div className='text-xl'>User not found</div>}
       </div>
 
-      <div className='absolute flex w-40 right-5 bottom-7 justify-evenly'>
+      <div className='absolute flex right-5 bottom-7 space-x-3 -z-10'>
         <BaseButton
           className='w-8 h-8 transition duration-300 transform rounded hover:scale-110'
           onClick={() => (window.location.href = githubURL)}
@@ -110,15 +108,6 @@ const HomePage = () => {
         >
           <BaseIcon icon={logoLinkedin} />
         </BaseButton>
-
-        {/* I have to think about that one. For now,
-        there is no way to invite someone, by link to the discord */}
-        {/* <BaseButton
-					className='w-8 h-8 transition duration-300 transform bg-gray-500 rounded hover:bg-gray-200 hover:scale-110'
-					onClick={() => (window.location.href = discordURL)}
-				>
-					<BaseIcon icon={logoDiscord} />
-				</BaseButton> */}
       </div>
     </div>
   );

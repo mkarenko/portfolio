@@ -2,6 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+/* roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light {
+  --background: 351 100% 95%;
+  --foreground: 351 5% 0%;
+  --card: 351 50% 90%;
+  --card-foreground: 351 5% 10%;
+  --popover: 351 100% 95%;
+  --popover-foreground: 351 100% 0%;
+  --primary: 351 100% 16%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 351 30% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 313 30% 85%;
+  --muted-foreground: 351 5% 35%;
+  --accent: 313 30% 80%;
+  --accent-foreground: 351 5% 10%;
+  --destructive: 0 100% 30%;
+  --destructive-foreground: 351 5% 90%;
+  --border: 351 30% 50%;
+  --input: 351 30% 18%;
+  --ring: 351 100% 16%;
+  --radius: 1.5rem;
+
+  --icon-fill: #ffd700;
+  --icon-fill-hover: #ff8c00;
+}
+
+.dark {
+  --background: 351 50% 5%;
+  --foreground: 351 5% 90%;
+  --card: 351 50% 0%;
+  --card-foreground: 351 5% 90%;
+  --popover: 351 50% 5%;
+  --popover-foreground: 351 5% 90%;
+  --primary: 351 100% 16%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 351 30% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 313 30% 15%;
+  --muted-foreground: 351 5% 60%;
+  --accent: 313 30% 15%;
+  --accent-foreground: 351 5% 90%;
+  --destructive: 0 100% 30%;
+  --destructive-foreground: 351 5% 90%;
+  --border: 351 30% 18%;
+  --input: 351 30% 18%;
+  --ring: 351 100% 16%;
+  --radius: 1.5rem;
+
+  --icon-fill: white;
+  --icon-fill-hover: #a9a9a9;
+}
+
+custom-shadow {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+/*  hide increment from input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* same as above but for firefox */
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
 /* disable autocomplete background color */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -14,112 +93,4 @@ select:-webkit-autofill:focus {
   border: none !important;
   -webkit-text-fill-color: inherit !important;
   transition: background-color 5000s ease-in-out 0s;
-}
-
-/* add roboto font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-custom-shadow {
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-body.dark {
-  width: 100%;
-  height: 100%;
-
-  background: #000000;
-
-  --gap: 5em;
-  --line: 1px;
-  --color: rgba(255, 255, 255, 0.2);
-
-  background-image: linear-gradient(
-      -90deg,
-      transparent calc(var(--gap) - var(--line)),
-      var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap)
-    ),
-    linear-gradient(
-      0deg,
-      transparent calc(var(--gap) - var(--line)),
-      var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap)
-    );
-  background-size: var(--gap) var(--gap);
-  background-attachment: fixed;
-  background-position: center;
-}
-
-body.light {
-  width: 100%;
-  height: 100%;
-
-  background: #ffffff;
-
-  --gap: 5em;
-  --line: 1px;
-  --color: rgba(0, 0, 0, 0.2);
-
-  background-image: linear-gradient(
-      -90deg,
-      transparent calc(var(--gap) - var(--line)),
-      var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap)
-    ),
-    linear-gradient(
-      0deg,
-      transparent calc(var(--gap) - var(--line)),
-      var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap)
-    );
-  background-size: var(--gap) var(--gap);
-  background-attachment: fixed;
-  background-position: center;
-}
-
-.blurred {
-  position: relative;
-  display: grid;
-  place-content: center;
-  border: solid 0.8em rgba(0, 0, 0, 0.03);
-  border-radius: 50%;
-  height: 400px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), 2px 2px 17px rgba(0, 0, 0, 0.35),
-    2px 2px 25px rgba(0, 0, 0, 0.5);
-  background: url(/src/assets/avatar.png) 50% / cover border-box padding-box;
-  font: 600 3em/1.25 'Segoe Script';
-}
-
-.blurred::before {
-  position: absolute;
-  z-index: -1;
-  top: -0.8em;
-  right: -0.8em;
-  bottom: -0.8em;
-  left: -0.8em;
-  border: inherit;
-  border-color: transparent;
-  border-radius: 50%;
-  background: inherit;
-  background-clip: border-box;
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  -webkit-clip-path: inset(0);
-  clip-path: inset(0);
-  content: '';
-}
-
-/*  hide increment from input type number */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type='number'] {
-  -moz-appearance: textfield;
 }

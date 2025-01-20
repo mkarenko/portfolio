@@ -13,10 +13,12 @@ const BaseIcon = ({icon, color, classCss}: Props) => {
 
   const cleanedIcon = icon.replace('data:image/svg+xml;utf8,', '');
 
+  color = theme === 'dark' ? '#e7e4e5' : '#000000';
+
   return (
     <div
+      style={{fill: color}}
       className={classCss}
-      style={{fill: color ?? theme === 'dark' ? 'white' : 'black'}}
       dangerouslySetInnerHTML={{__html: cleanedIcon}}
     />
   );

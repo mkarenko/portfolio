@@ -18,13 +18,10 @@ const CaptchaModal = ({isOpen, setIsOpen}: Props) => {
 
   return (
     <>
-      {' '}
       {isOpen && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-6 rounded shadow-lg w-96'>
-            <h2 className='text-black text-xl font-bold mb-4'>
-              Please complete captcha to the send form
-            </h2>
+        <div className='fixed inset-0 flex items-center justify-center bg-popover z-50'>
+          <div className='bg-popover p-6 rounded shadow-lg w-96 border border-border'>
+            <h2 className='text-xl font-bold mb-4'>Please complete captcha to the send form</h2>
             <ReCAPTCHA
               className='flex justify-center py-3'
               sitekey='6LecdIAqAAAAAIwZ_dg3DQ5nGnPwx3xyN3YwgmnD'
@@ -33,7 +30,7 @@ const CaptchaModal = ({isOpen, setIsOpen}: Props) => {
             <div className='w-full flex justify-end'>
               <button
                 onClick={() => setIsOpen(false)}
-                className=' bg-red-500 text-white px-4 py-2 rounded'
+                className=' bg-primary text-white px-4 py-2 rounded'
               >
                 Close
               </button>
