@@ -10,4 +10,5 @@ export type Project = {
   website: string;
   android?: string;
   ios?: string;
+  themeColor?: string;
 };
