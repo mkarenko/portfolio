@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.d7ef9973.css",
-    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.3e70753e.js",
+    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.56fb31e9.css",
+    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.f3d239e4.js",
     "static/js/651.24b2ed5d.chunk.js": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js",
     "static/media/cv_pl.pdf": "https://mkarenko.github.io/portfolio/static/media/cv_pl.84e95c27aa86e6372a06.pdf",
     "static/media/cv_en.pdf": "https://mkarenko.github.io/portfolio/static/media/cv_en.3a786a32e38948cd0605.pdf",
@@ -25,12 +25,12 @@
     "static/media/react.svg": "https://mkarenko.github.io/portfolio/static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
     "static/media/react_native.svg": "https://mkarenko.github.io/portfolio/static/media/react_native.928f956d9c8ebcffb98a8e917154a81a.svg",
     "static/media/checkmark.svg": "https://mkarenko.github.io/portfolio/static/media/checkmark.a35b71352778efa2e39a86af94bc69f1.svg",
-    "main.d7ef9973.css.map": "https://mkarenko.github.io/portfolio/static/css/main.d7ef9973.css.map",
-    "main.3e70753e.js.map": "https://mkarenko.github.io/portfolio/static/js/main.3e70753e.js.map",
+    "main.56fb31e9.css.map": "https://mkarenko.github.io/portfolio/static/css/main.56fb31e9.css.map",
+    "main.f3d239e4.js.map": "https://mkarenko.github.io/portfolio/static/js/main.f3d239e4.js.map",
     "651.24b2ed5d.chunk.js.map": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7ef9973.css",
-    "static/js/main.3e70753e.js"
+    "static/css/main.56fb31e9.css",
+    "static/js/main.f3d239e4.js"
   ]
 }
