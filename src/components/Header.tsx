@@ -8,7 +8,7 @@ import BaseIcon from './BaseIcon';
 import BaseButton from './buttons/BaseButton';
 import ThemeButton from './buttons/ThemeButton';
 
-import {download, home, language as languageIcon} from 'ionicons/icons';
+import {home, language as languageIcon} from 'ionicons/icons';
 
 export const Header = ({currentLoc, handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
   const navigate = useNavigate();
@@ -34,20 +34,22 @@ export const Header = ({currentLoc, handleDownloadPDF, handleSwitchLanguage}: He
         <BaseButton className={navButtonClass('/skills')} onClick={() => navigate('/skills')}>
           Skills
         </BaseButton>
-        <BaseButton className={navButtonClass('/cv')} onClick={() => navigate('/cv')}>
-          CV
+        <BaseButton className={navButtonClass('/cv')}>
+          <a href='/portfolio/assets/cv_en.pdf' target='_blank' rel='noopener noreferrer'>
+            Open CV
+          </a>
         </BaseButton>
         <BaseButton className={navButtonClass('/contact')} onClick={() => navigate('/contact')}>
           Contact
         </BaseButton>
-        {currentLoc === '#/cv' && (
+        {/* {currentLoc === '#/cv' && (
           <BaseButton
             className='w-6 transition duration-300 transform hover:scale-110'
             onClick={handleDownloadPDF}
           >
             <BaseIcon icon={download} />
           </BaseButton>
-        )}
+        )} */}
         <BaseButton
           className='w-6 transition duration-300 transform hover:scale-110'
           onClick={handleSwitchLanguage}

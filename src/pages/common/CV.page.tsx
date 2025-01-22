@@ -12,6 +12,9 @@ const CVPage = () => {
 
   return (
     <div className='flex items-center justify-center w-full h-full'>
+      <a href='/portfolio/assets/cv_en.pdf' target='_blank' rel='noopener noreferrer'>
+        Open CV
+      </a>
       <Document file={language === 'en' ? cvEN : cvPL}>
         <Page pageNumber={1} />
       </Document>
