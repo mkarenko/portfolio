@@ -49,8 +49,10 @@ const BurgerMenu = ({currentLoc, handleDownloadPDF, handleSwitchLanguage}: Heade
         >
           Skills
         </BaseButton>
-        <BaseButton className={navButtonClass('/cv')} onClick={() => handleNavigation('/cv')}>
-          CV
+        <BaseButton className={navButtonClass('/cv')}>
+          <a href='/assets/cv_en.pdf' target='_blank' rel='noopener noreferrer'>
+            Open CV
+          </a>
         </BaseButton>
         <BaseButton
           className={navButtonClass('/contact')}
