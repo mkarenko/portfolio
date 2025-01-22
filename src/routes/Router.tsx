@@ -12,6 +12,7 @@ import HomePage from '../pages/common/Home.page';
 import NotFoundPage from '../pages/common/NotFound.page';
 import ProjectsPage from '../pages/projects/Projects.page';
 import SkillsPage from '../pages/skills/Skills.page';
+import {cvEN, cvPL} from '../utils/constants';
 
 export type HeaderProps = {
   currentLoc: string;
@@ -20,8 +21,6 @@ export type HeaderProps = {
 };
 
 const Router = () => {
-  const cvEN = 'https://mkarenko.com/assets/cv_en.pdf';
-  const cvPL = 'https://mkarenko.com/assets/cv_PL.pdf';
   const currentLocation = window.location.hash.replace('#', '');
 
   const [language, setLanguage] = useRecoilState(languageAtom);

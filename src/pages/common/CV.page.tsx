@@ -5,11 +5,9 @@ import {Document, Page} from 'react-pdf';
 import {useRecoilValue} from 'recoil';
 
 import {languageAtom} from '../../atoms/language.atom';
+import {cvEN, cvPL} from '../../utils/constants';
 
 const CVPage = () => {
-  const cvEN = 'https://mkarenko.com/assets/cv_en.pdf';
-  const cvPL = 'https://mkarenko.com/assets/cv_PL.pdf';
-
   const language = useRecoilValue(languageAtom);
 
   return (
