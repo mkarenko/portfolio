@@ -1,10 +1,8 @@
 {
   "files": {
-    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.56fb31e9.css",
-    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.f3d239e4.js",
+    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.dc41f14b.css",
+    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.7f705ae3.js",
     "static/js/651.24b2ed5d.chunk.js": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js",
-    "static/media/cv_pl.pdf": "https://mkarenko.github.io/portfolio/static/media/cv_pl.84e95c27aa86e6372a06.pdf",
-    "static/media/cv_en.pdf": "https://mkarenko.github.io/portfolio/static/media/cv_en.3a786a32e38948cd0605.pdf",
     "static/media/pdf.worker.min.mjs": "https://mkarenko.github.io/portfolio/static/media/pdf.worker.min.2a1f575db5df84b52c4b.mjs",
     "static/media/api.png": "https://mkarenko.github.io/portfolio/static/media/api.aceeff496910c356de58.png",
     "static/media/persoklick.svg": "https://mkarenko.github.io/portfolio/static/media/persoklick.e5c2bee5385a7b11ed5a9eb63e5eb87b.svg",
@@ -25,12 +23,12 @@
     "static/media/react.svg": "https://mkarenko.github.io/portfolio/static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
     "static/media/react_native.svg": "https://mkarenko.github.io/portfolio/static/media/react_native.928f956d9c8ebcffb98a8e917154a81a.svg",
     "static/media/checkmark.svg": "https://mkarenko.github.io/portfolio/static/media/checkmark.a35b71352778efa2e39a86af94bc69f1.svg",
-    "main.56fb31e9.css.map": "https://mkarenko.github.io/portfolio/static/css/main.56fb31e9.css.map",
-    "main.f3d239e4.js.map": "https://mkarenko.github.io/portfolio/static/js/main.f3d239e4.js.map",
+    "main.dc41f14b.css.map": "https://mkarenko.github.io/portfolio/static/css/main.dc41f14b.css.map",
+    "main.7f705ae3.js.map": "https://mkarenko.github.io/portfolio/static/js/main.7f705ae3.js.map",
     "651.24b2ed5d.chunk.js.map": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.56fb31e9.css",
-    "static/js/main.f3d239e4.js"
+    "static/css/main.dc41f14b.css",
+    "static/js/main.7f705ae3.js"
   ]
 }
