@@ -34,8 +34,8 @@ const Router = () => {
 
   return (
     <>
-      {deviceType === 'mobile' && <BurgerMenu />}
       {deviceType === 'desktop' && <Header />}
+      {deviceType === 'mobile' && <BurgerMenu />}
 
       <Routes>
         <Route path='/' element={<HomePage />} />

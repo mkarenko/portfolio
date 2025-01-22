@@ -1,53 +1,25 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import '../../theme/themeSwitcher.css';
 
-import {useEffect} from 'react';
-import {useRecoilState} from 'recoil';
+/* eslint-disable react-hooks/exhaustive-deps */
+import usePreferredTheme from '../../hooks/usePreferredTheme';
 
-import {themeAtom} from '../../atoms/theme.atom';
+type Props = {
+  width?: string;
+  height?: string;
+};
 
-const ThemeButton = () => {
-  const html = document.documentElement;
-  const body = document.body;
-  const [theme, setTheme] = useRecoilState(themeAtom);
-
-  useEffect(() => {
-    const savedTheme =
-      localStorage.getItem('theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-    setTheme(savedTheme);
-
-    html.setAttribute('data-theme', savedTheme);
-    body.classList.toggle('dark', savedTheme === 'dark');
-  }, [theme]);
-
-  const handleToggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-
-    html.setAttribute('data-theme', newTheme);
-
-    if (newTheme === 'dark') {
-      body.classList.add('dark');
-      body.classList.remove('light');
-    } else {
-      body.classList.add('light');
-      body.classList.remove('dark');
-    }
-  };
+const ThemeButton = ({width = '24', height = '24'}: Props) => {
+  const {toggleTheme} = usePreferredTheme();
 
   return (
-    <button
-      className='theme-toggle'
-      id='theme-toggle'
-      title='Toggles light & dark'
-      aria-label='auto'
-      aria-live='polite'
-      onClick={handleToggleTheme}
-    >
-      <svg className='sun-and-moon' aria-hidden='true' width='24' height='24' viewBox='0 0 24 24'>
+    <button id='theme-toggle' className='theme-toggle' onClick={toggleTheme}>
+      <svg
+        className='sun-and-moon'
+        aria-hidden='true'
+        width={width}
+        height={height}
+        viewBox='0 0 24 24'
+      >
         <mask className='moon' id='moon-mask'>
           <rect x='0' y='0' width='100%' height='100%' fill='white' />
           <circle cx='24' cy='10' r='6' fill='black' />

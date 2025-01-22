@@ -2,7 +2,7 @@ import './burgerMenu.css';
 
 import {useState} from 'react';
 import {useNavigate} from 'react-router';
-import {useRecoilState} from 'recoil';
+import {useSetRecoilState} from 'recoil';
 
 import {tabAtom} from '../../atoms/tab.atom';
 import BaseIcon from '../BaseIcon';
@@ -13,10 +13,10 @@ import {download, language as languageIcon} from 'ionicons/icons';
 
 const BurgerMenu = () => {
   const navigate = useNavigate();
-  const currentLocation = window.location.hash;
+  const currentLocation = window.location.hash.replace('#', '');
 
   const [open, setOpen] = useState(false);
-  const [tab, setTab] = useRecoilState(tabAtom);
+  const setTab = useSetRecoilState(tabAtom);
 
   const toggleMenu = () => setOpen((prev) => !prev);
 
@@ -26,8 +26,8 @@ const BurgerMenu = () => {
     setOpen(false);
   };
 
-  const navButtonClass = `font-bold text-muted-foreground hover:text-black dark:hover:text-white
-  ${currentLocation === tab && 'border-b'}`;
+  const navButtonClass = (pathName: string) => `text-4xl font-bold text-light-text
+  ${currentLocation === pathName && 'border-b-8 border-primary rounded'}`;
 
   return (
     <div className='burger-menu'>
@@ -37,38 +37,47 @@ const BurgerMenu = () => {
         <div />
       </BaseButton>
 
-      <nav className={`menu ${open && 'open'} flex flex-col justify-center items-center`}>
-        <BaseButton className={navButtonClass} onClick={() => handleNavigation('/')}>
+      <nav className={`menu ${open && 'open'} w-full h-full flex flex-col items-start gap-y-5`}>
+        <BaseButton className={navButtonClass('/')} onClick={() => handleNavigation('/')}>
           Home
         </BaseButton>
-        <BaseButton className={navButtonClass} onClick={() => handleNavigation('/projects')}>
+        <BaseButton
+          className={navButtonClass('/projects')}
+          onClick={() => handleNavigation('/projects')}
+        >
           Past Work
         </BaseButton>
-        <BaseButton className={navButtonClass} onClick={() => handleNavigation('/skills')}>
+        <BaseButton
+          className={navButtonClass('/skills')}
+          onClick={() => handleNavigation('/skills')}
+        >
           Skills
         </BaseButton>
-        <BaseButton className={navButtonClass} onClick={() => handleNavigation('/cv')}>
+        <BaseButton className={navButtonClass('/cv')} onClick={() => handleNavigation('/cv')}>
           CV
         </BaseButton>
-        <BaseButton className={navButtonClass} onClick={() => handleNavigation('/contact')}>
+        <BaseButton
+          className={navButtonClass('/contact')}
+          onClick={() => handleNavigation('/contact')}
+        >
           Contact
         </BaseButton>
         {currentLocation === '#/cv' && (
           <BaseButton
-            className='w-6 transition duration-300 transform hover:scale-110'
+            className='w-16 transition duration-300 transform hover:scale-110'
             // onClick={handleDownloadPDF}
           >
             <BaseIcon icon={download} />
           </BaseButton>
         )}
         <BaseButton
-          className='w-6 transition duration-300 transform hover:scale-110'
+          className='w-16 transition duration-300 transform hover:scale-110'
           // onClick={handleSwitchLanguage}
         >
           <BaseIcon icon={languageIcon} />
         </BaseButton>
 
-        <ThemeButton />
+        <ThemeButton width='65' height='64' />
       </nav>
     </div>
   );
