@@ -25,14 +25,14 @@ const HomePage = () => {
         <div className='w-full text-2xl lg:w-1/2 lg:text-6xl'>Frontend Developer</div>
       </div>
 
-      <div className='w-full flex justify-center pt-20'>
+      <div className='w-full flex justify-center pt-20 lg:w-4/5 lg:justify-end lg:pt-10'>
         <Cubes />
       </div>
 
-      <div className='pt-8'>
+      <div className='w-2/3 pt-8'>
         This site is created with React.js. While I normally create web apps using Ionic, for my own
         page I wanted to create it with as few libraries as possible. Here's the list of libraries
-        used:
+        used: /// TODO
       </div>
 
       {/* <div className='flex flex-col w-full mt-8'>

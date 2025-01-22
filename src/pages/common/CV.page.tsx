@@ -4,11 +4,12 @@ import 'react-pdf/dist/Page/TextLayer.css';
 import {Document, Page} from 'react-pdf';
 import {useRecoilValue} from 'recoil';
 
-import cvEN from '../../assets/cv_en.pdf';
-import cvPL from '../../assets/cv_pl.pdf';
 import {languageAtom} from '../../atoms/language.atom';
 
 const CVPage = () => {
+  const cvEN = 'https://mkarenko.com/assets/cv_en.pdf';
+  const cvPL = 'https://mkarenko.com/assets/cv_PL.pdf';
+
   const language = useRecoilValue(languageAtom);
 
   return (

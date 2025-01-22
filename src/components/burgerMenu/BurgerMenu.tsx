@@ -2,32 +2,28 @@ import './burgerMenu.css';
 
 import {useState} from 'react';
 import {useNavigate} from 'react-router';
-import {useSetRecoilState} from 'recoil';
 
-import {tabAtom} from '../../atoms/tab.atom';
+import {HeaderProps} from '../../routes/Router';
 import BaseIcon from '../BaseIcon';
 import BaseButton from '../buttons/BaseButton';
 import ThemeButton from '../buttons/ThemeButton';
 
 import {download, language as languageIcon} from 'ionicons/icons';
 
-const BurgerMenu = () => {
+const BurgerMenu = ({currentLoc, handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
   const navigate = useNavigate();
-  const currentLocation = window.location.hash.replace('#', '');
 
   const [open, setOpen] = useState(false);
-  const setTab = useSetRecoilState(tabAtom);
 
   const toggleMenu = () => setOpen((prev) => !prev);
 
   const handleNavigation = (path: string) => {
-    setTab(path);
     navigate(path);
     setOpen(false);
   };
 
-  const navButtonClass = (pathName: string) => `text-4xl font-bold text-light-text
-  ${currentLocation === pathName && 'border-b-8 border-primary rounded'}`;
+  const navButtonClass = (pathName: string) =>
+    `text-4xl font-bold ${currentLoc === pathName && 'border-b-8 border-primary rounded'}`;
 
   return (
     <div className='burger-menu'>
@@ -62,17 +58,17 @@ const BurgerMenu = () => {
         >
           Contact
         </BaseButton>
-        {currentLocation === '#/cv' && (
+        {currentLoc === '#/cv' && (
           <BaseButton
             className='w-16 transition duration-300 transform hover:scale-110'
-            // onClick={handleDownloadPDF}
+            onClick={handleDownloadPDF}
           >
             <BaseIcon icon={download} />
           </BaseButton>
         )}
         <BaseButton
           className='w-16 transition duration-300 transform hover:scale-110'
-          // onClick={handleSwitchLanguage}
+          onClick={handleSwitchLanguage}
         >
           <BaseIcon icon={languageIcon} />
         </BaseButton>
