@@ -35,7 +35,7 @@ export const Header = ({currentLoc, handleDownloadPDF, handleSwitchLanguage}: He
           Skills
         </BaseButton>
         <BaseButton className={navButtonClass('/cv')}>
-          <a href='/portfolio/assets/cv_en.pdf' target='_blank' rel='noopener noreferrer'>
+          <a href='/assets/cv_en.pdf' target='_blank' rel='noopener noreferrer'>
             Open CV
           </a>
         </BaseButton>
