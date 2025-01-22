@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://mkarenko.github.io/portfolio/static/css/main.dc41f14b.css",
-    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.7f705ae3.js",
+    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.2903d7e6.js",
     "static/js/651.24b2ed5d.chunk.js": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js",
     "static/media/pdf.worker.min.mjs": "https://mkarenko.github.io/portfolio/static/media/pdf.worker.min.2a1f575db5df84b52c4b.mjs",
     "static/media/api.png": "https://mkarenko.github.io/portfolio/static/media/api.aceeff496910c356de58.png",
@@ -24,11 +24,11 @@
     "static/media/react_native.svg": "https://mkarenko.github.io/portfolio/static/media/react_native.928f956d9c8ebcffb98a8e917154a81a.svg",
     "static/media/checkmark.svg": "https://mkarenko.github.io/portfolio/static/media/checkmark.a35b71352778efa2e39a86af94bc69f1.svg",
     "main.dc41f14b.css.map": "https://mkarenko.github.io/portfolio/static/css/main.dc41f14b.css.map",
-    "main.7f705ae3.js.map": "https://mkarenko.github.io/portfolio/static/js/main.7f705ae3.js.map",
+    "main.2903d7e6.js.map": "https://mkarenko.github.io/portfolio/static/js/main.2903d7e6.js.map",
     "651.24b2ed5d.chunk.js.map": "https://mkarenko.github.io/portfolio/static/js/651.24b2ed5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dc41f14b.css",
-    "static/js/main.7f705ae3.js"
+    "static/js/main.2903d7e6.js"
   ]
 }
