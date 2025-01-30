@@ -1,64 +1,68 @@
 import '../components/discoball/discoball.css';
 import '../theme/themeSwitcher.css';
 
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
+import {useRecoilValue} from 'recoil';
 
+import {motion} from 'motion/react';
+import {themeAtom} from 'src/atoms/theme.atom';
+import {navigationTabs, transparentClass} from 'src/utils/constants';
 import {HeaderProps} from '../routes/Router';
-import BaseIcon from './BaseIcon';
-import BaseButton from './buttons/BaseButton';
+import Button from './buttons/Button';
 import ThemeButton from './buttons/ThemeButton';
+import Icon from './Icon';
 
-import {home, language as languageIcon} from 'ionicons/icons';
+import {language} from 'ionicons/icons';
+import home from '../assets/icons/home.svg';
 
-export const Header = ({currentLoc, handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
+export const Header = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const navButtonClass = (pathName: string) =>
-    `font-bold text-muted-foreground hover:text-black dark:hover:text-white ${
-      currentLoc === pathName && 'border-b-8 border-primary rounded'
-    }`;
+  const theme = useRecoilValue(themeAtom);
+
+  const navbarClass =
+    'flex justify-center items-center space-x-4 py-2 px-4 rounded-full' + transparentClass(theme);
 
   return (
-    <header className='w-full py-5'>
-      <nav className='relative w-full flex justify-end items-center space-x-4 pr-3'>
-        <BaseButton
-          className='absolute left-5 w-8 transition duration-300 transform hover:scale-110'
+    <motion.header className='sticky top-0 w-full py-5 px-4 flex justify-between items-center'>
+      <motion.nav className={navbarClass}>
+        <Button
+          className='flex justify-center items-center px-1 py-1.5 space-x-2'
           onClick={() => navigate('/')}
         >
-          <BaseIcon icon={home} />
-        </BaseButton>
+          <Icon src={home} className='w-6' />
+          <div className='font-semibold'>Home</div>
+        </Button>
+      </motion.nav>
 
-        <BaseButton className={navButtonClass('/projects')} onClick={() => navigate('/projects')}>
-          Past Work
-        </BaseButton>
-        <BaseButton className={navButtonClass('/skills')} onClick={() => navigate('/skills')}>
-          Skills
-        </BaseButton>
-        <BaseButton className={navButtonClass('/cv')}>
-          <a href='/assets/cv_en.pdf' target='_blank' rel='noopener noreferrer'>
-            Open CV
-          </a>
-        </BaseButton>
-        <BaseButton className={navButtonClass('/contact')} onClick={() => navigate('/contact')}>
-          Contact
-        </BaseButton>
-        {/* {currentLoc === '#/cv' && (
-          <BaseButton
-            className='w-6 transition duration-300 transform hover:scale-110'
-            onClick={handleDownloadPDF}
+      <motion.nav className={navbarClass}>
+        {navigationTabs.map(({name, path}) => (
+          <Button
+            key={path}
+            onClick={() => navigate(path)}
+            className={`relative px-4 py-2 text-sm font-bold transition ${
+              location.pathname === path ? 'text-white' : 'text-gray-600'
+            }`}
           >
-            <BaseIcon icon={download} />
-          </BaseButton>
-        )} */}
-        <BaseButton
-          className='w-6 transition duration-300 transform hover:scale-110'
-          onClick={handleSwitchLanguage}
-        >
-          <BaseIcon icon={languageIcon} />
-        </BaseButton>
+            {location.pathname === path && (
+              <motion.div
+                layoutId='activeTab'
+                className='absolute inset-0 bg-primary rounded-full'
+                transition={{type: 'spring', stiffness: 500, damping: 30}}
+              />
+            )}
+            <span className='relative z-10'>{name}</span>
+          </Button>
+        ))}
 
-        <ThemeButton />
-      </nav>
-    </header>
+        <div className='relative px-2 space-x-4 flex justify-center'>
+          <Button className=''>
+            <Icon src={language} size='30px' />
+          </Button>
+          <ThemeButton height='30' width='30' />
+        </div>
+      </motion.nav>
+    </motion.header>
   );
 };

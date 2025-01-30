@@ -2,6 +2,7 @@ import {useEffect} from 'react';
 import {useSetRecoilState} from 'recoil';
 
 import {firstVisitAtom} from './atoms/firstVisit.atom';
+import {ParticlesBackground} from './components/ParticlesBackground';
 import Router from './routes/Router';
 
 const App = () => {
@@ -18,8 +19,13 @@ const App = () => {
     setFirstVisit(false);
   }, [setFirstVisit]);
 
-  useEffect(() => {}, []);
-  return <Router />;
+  return (
+    <>
+      <ParticlesBackground />
+
+      <Router />
+    </>
+  );
 };
 
 export default App;

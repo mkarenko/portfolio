@@ -1,24 +1,25 @@
 import {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 
 import emailjs from 'emailjs-com';
-import BaseIcon from '../../components/BaseIcon';
-import BaseButton from '../../components/buttons/BaseButton';
+import Button from '../../components/buttons/Button';
+import ContactButton from '../../components/buttons/ContactButton';
 import CaptchaModal from '../../components/CaptchaModal';
-import BaseInput from '../../components/inputs/BaseInput';
-import BaseSelect from '../../components/inputs/BaseSelect';
-import BaseTextarea from '../../components/inputs/BaseTextArea';
+import Input from '../../components/inputs/Input';
+import Select from '../../components/inputs/Select';
+import Textarea from '../../components/inputs/TextArea';
 import {ContactFormType} from '../../types/contactForm.type';
 import {Country} from '../../types/country.type';
 
-import {logoLinkedin, mail, phonePortrait} from 'ionicons/icons';
-import checkmark from '../../assets/checkmark.svg';
+import checkmark from '../../assets/icons/checkmark.svg';
+import link from '../../assets/icons/link.svg';
+import mail from '../../assets/icons/mail.svg';
+import smartphone from '../../assets/icons/smartphone.svg';
 import spinner from '../../assets/spinner.svg';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState<ContactFormType>({
     name: '',
     email: '',
-    code: '+48',
     phoneNumber: 0 || undefined,
     country: 'Poland',
     message: '',
@@ -58,7 +59,6 @@ const ContactPage = () => {
           (country: any): Country => ({
             name: country.name.common,
             shortName: country.altSpellings[0],
-            code: `${country.idd.root}${country.idd.suffixes?.[0]}`,
             flag: country.flag,
           })
         );
@@ -71,10 +71,6 @@ const ContactPage = () => {
 
     fetchCountries();
   }, []);
-
-  useEffect(() => {
-    if (formReady) setShowModal(true);
-  }, [formReady]);
 
   const handleDataChange = (e: ChangeEvent<any>): void => {
     const {name, value} = e.target;
@@ -89,7 +85,7 @@ const ContactPage = () => {
       from_name: formData.name,
       name: formData.name,
       mail: formData.email,
-      phone: formData.code + ' ' + formData.phoneNumber,
+      phone: formData.phoneNumber,
       country: formData.email,
       message: formData.message,
     };
@@ -107,161 +103,120 @@ const ContactPage = () => {
   };
 
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center gap-y-10'>
-      <div className='h-fit space-y-3 p-3 bg-card border-border border-y-2'>
-        <div className='font-semibold text-xl text-center'>
+    <div
+      className='w-full h-full pt-20 md:pt-32 flex flex-col justify-center items-center
+      md:p-0 md:flex-row md:justify-evenly md:items-center'
+    >
+      <div className='px-5 space-y-8 md:w-1/3 flex flex-col items-start'>
+        <div className='w-full text-6xl md:text-7xl'>have a question?</div>
+        <div className='text-xl text-start'>
           You can call me on my mobile, send me mail or message me on LinkedIn. I also created this
-          form. After filling and sending, I'll receive your contact info. If the form is sent
+          form.
+        </div>
+        <div className='text-xl text-start'>
+          After filling and sending, I'll receive your contact info. If the form is sent
           successfully, you'll get a confirmation on the email below.
         </div>
 
-        <div className='flex justify-evenly gap-4 text-sm text-white'>
-          <div
-            className='rounded p-2 bg-primary hover:bg-accent transition-transform duration-300
-            hover:scale-110'
-          >
-            <a href='tel:+48692566688' className='flex items-center gap-x-2'>
-              <BaseIcon icon={phonePortrait} color='white' classCss='w-6' />
-              +48 692 566 688
-            </a>
-          </div>
-          <div
-            className='rounded p-2 bg-primary hover:bg-accent transition-transform duration-300
-            hover:scale-110'
-          >
-            <a
-              href='mailto:m.karenko@outlook.com'
-              className='flex items-center gap-x-2 transition-transform duration-300
-              hover:scale-110'
-            >
-              <BaseIcon icon={mail} color='white' classCss='w-6' />
-              m.karenko@outlook.com
-            </a>
-          </div>
-          <div
-            className='rounded p-2 bg-primary hover:bg-accent transition-transform duration-300
-            hover:scale-110'
-          >
-            <a
-              href='https://www.linkedin.com/in/m-karenko/'
-              className='flex items-center gap-x-2 transition-transform duration-300
-              hover:scale-110'
-            >
-              <BaseIcon icon={logoLinkedin} color='white' classCss='w-6' />
-              Linkedin
-            </a>
-          </div>
+        <div className='w-full flex flex-col sm:flex-row md:flex-col'>
+          <ContactButton text='+48 692 566 688' icon={smartphone} href='tel:+48 692 566 688' />
+          <ContactButton
+            text='m.karenko@outlook.com'
+            icon={mail}
+            href='mailto:m.karenko@outlook.com'
+          />
+          <ContactButton
+            text='Linkedin'
+            icon={link}
+            href='https://www.linkedin.com/in/m-karenko/'
+          />
         </div>
       </div>
 
-      <form className='w-1/3 flex flex-col gap-y-3 py-3 px-5 rounded-xl bg-card border-border border-2'>
-        <div className='w-full flex justify-center'>
-          <BaseInput
+      <div className='px-5 py-3'>
+        <form className='w-full p-5 flex flex-col justify-center items-center gap-y-3 text-lg'>
+          <Input
             type='text'
             name='name'
             maxLength={20}
-            label='Name/Company'
+            label='Name and Surname/Company Name*'
             placeholder='name'
-            width='80%'
             value={formData.name}
+            className='px-4 text-start md:h-12 rounded-xl shrink'
             onChange={handleDataChange}
           />
-        </div>
-        <div className='w-full flex justify-center'>
-          <BaseInput
+          <Input
             type='text'
             name='email'
             maxLength={32}
-            label='Email'
+            label='Email*'
             placeholder='example@email.com'
-            width='80%'
             value={formData.email}
+            className='px-4 text-start md:h-12 rounded-xl shrink'
             onChange={handleDataChange}
           />
-        </div>
-        <div className='w-full flex justify-center items-center space-x-3'>
-          <BaseSelect
+          <Input
             label='Phone number'
-            items={countries}
-            name='code'
-            renderItem={(item) => (
-              <>
-                {item.shortName} {item.flag} {item.code}
-              </>
-            )}
-            width='30%'
-            onChange={handleDataChange}
-          />
-          <BaseInput
-            label='*' // TODO
             type='number'
             name='phoneNumber'
             placeholder='678 345 129'
             value={formData.phoneNumber}
-            width={'calc(50% - 12px)'}
+            className='px-4 text-start md:h-12 rounded-xl shrink'
             onChange={(e) => {
               const value = e.target.value;
               if (value.length <= 12) handleDataChange(e);
             }}
           />
-        </div>
-        <div className='w-full flex justify-center'>
-          <BaseSelect
-            label='Country *'
+          <Select
+            label='Country'
             name='country'
             value={formData.country}
-            items={countries}
-            width='80%'
-            renderItem={(item) => (
-              <>
-                {item.flag} {item.name}
-              </>
-            )}
+            className='px-4 text-start md:h-12 rounded-xl shrink'
             onChange={handleDataChange}
-          />
-        </div>
-        <div className='w-full flex justify-center'>
-          <BaseTextarea
-            label='Message *'
+          >
+            {countries.map((country) => (
+              <option key={country.shortName} value={country.name} />
+            ))}
+          </Select>
+          <Textarea
+            label='Message'
             name='message'
             placeholder='optional'
             max={120}
-            width='80%'
-            style={{lineHeight: '32px'}}
             value={formData.message}
+            className='px-4 p-2 md:h-32 rounded-xl'
             onChange={handleDataChange}
           />
-        </div>
-        <div className='w-full flex justify-center'>
-          <div className='text-xs text-end'>
-            Inputs marked with * are optional, and aren't needed to complete form
+
+          <div className='w-full flex justify-center'>
+            <div className='w-full text-sm md:text-lg text-end'>*required</div>
           </div>
-        </div>
 
-        {showModal && <CaptchaModal isOpen={showModal} setIsOpen={setShowModal} />}
+          {showModal && <CaptchaModal isOpen={showModal} setIsOpen={setShowModal} />}
 
-        <BaseButton
-          type='submit'
-          disabled={!formReady}
-          className='flex w-fit mx-auto px-4 py-2 font-semibold text-light  bg-primary rounded
-          disabled:bg-gray disabled:text-white disabled:cursor-not-allowed'
-          onClick={handleSubmit}
-        >
-          {!status && 'Send'}
-          {status === 'sending' && (
-            <div className='flex justify-center items-center space-x-2'>
-              <img alt='sending' src={spinner} className='animate-spin w-8' />
-              <div>Processing...</div>
-            </div>
-          )}
-          {status === 'sent' && (
-            <div className='flex justify-center items-center'>
-              <img alt='sent' src={checkmark} className='w-8' />
-              <div>Sent</div>
-            </div>
-          )}
-        </BaseButton>
-      </form>
+          <Button
+            type='submit'
+            disabled={!formReady}
+            className='w-full md:w-fit flex justify-center px-4 py-2 font-semibold text-light
+            bg-primary rounded-xl disabled:bg-gray-50 disabled:cursor-not-allowed'
+            onClick={handleSubmit}
+          >
+            {!status && 'Send'}
+            {status === 'sending' && (
+              <div className='flex justify-center items-center space-x-2'>
+                <img alt='sending' src={spinner} className='animate-spin w-8' />
+                <div>Processing...</div>
+              </div>
+            )}
+            {status === 'sent' && (
+              <div className='flex justify-center items-center'>
+                <img alt='sent' src={checkmark} className='w-8' />
+                <div>Sent</div>
+              </div>
+            )}
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 .typewriter div {
   border-right: 0.15em solid orange;
-  font-family: 'Courier';
   white-space: nowrap;
   overflow: hidden;
   z-index: -100;

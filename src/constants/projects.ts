@@ -1,6 +1,6 @@
 import {Project} from '../types/project.type';
 
-import persoklickLogo from '../assets/persoklick.svg';
+import persoklickLogo from '../assets/logo/persoklick.svg';
 
 export const projects: Project[] = [
   {

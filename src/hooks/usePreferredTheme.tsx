@@ -10,8 +10,8 @@ const usePreferredTheme = () => {
     const html = document.documentElement;
     const body = document.body;
 
-    const savedTheme =
-      localStorage.getItem('theme') ||
+    const savedTheme: 'dark' | 'light' =
+      (localStorage.getItem('theme') as 'dark' | 'light') ||
       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
     setTheme(savedTheme);

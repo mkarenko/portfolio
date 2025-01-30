@@ -1,15 +1,16 @@
+import Icon from '../../components/Icon';
+import Image from '../../components/Image';
 import {skills} from '../../constants/skills';
-import {boxClass} from '../../utils/constants';
+import {cardClass} from '../../utils/constants';
 
-import androidIcon from '../../assets/android.svg';
-import iosIcon from '../../assets/ios.svg';
+import {logoAppleAppstore, logoGooglePlaystore} from 'ionicons/icons';
 
 type Props = {
   name: string;
   description: string;
   technologies: number[];
   icon: string;
-  logo: string | undefined;
+  logo: string;
   website: string;
   android: string | null;
   ios: string | null;
@@ -33,7 +34,7 @@ const ProjectComponent = ({
   const skillDetails = getSkillDetails(technologies);
 
   return (
-    <div className={boxClass}>
+    <div className={cardClass}>
       <img alt='logo' src={logo} className='w-full row-start-1 p-10 h-1/3' />
       <div className='text-2xl font-bold'>{name}</div>
       <div>{description}</div>
@@ -50,17 +51,17 @@ const ProjectComponent = ({
         )}
       </div>
       <div className='flex items-center justify-end space-x-5'>
-        <a href={website}>
-          <img alt='website' src={icon} className='w-10 rounded-full hover:cursor-pointer' />
+        <a href={website} target='_blank' rel='noopener noreferrer'>
+          <Image src={icon} width='50px' height='50px' className='rounded-full' />
         </a>
         {android && (
-          <a href={android}>
-            <img alt='android' src={androidIcon} className='w-10 h-10 hover:cursor-pointer' />
+          <a href={android} target='_blank' rel='noopener noreferrer'>
+            <Icon src={logoGooglePlaystore} size='40px' className='hover:cursor-pointer' />
           </a>
         )}
         {ios && (
-          <a href={ios}>
-            <img alt='ios' src={iosIcon} className='w-10 h-10 hover:cursor-pointer' />
+          <a href={ios} target='_blank' rel='noopener noreferrer'>
+            <Icon src={logoAppleAppstore} size='40px' className='hover:cursor-pointer' />
           </a>
         )}
       </div>

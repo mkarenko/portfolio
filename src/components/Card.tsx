@@ -2,7 +2,7 @@ type Props = {
   radius: string;
 };
 
-const BaseCard = ({radius}: Props) => {
+const Card = ({radius}: Props) => {
   return (
     <div>
       <div></div>
@@ -10,4 +10,4 @@ const BaseCard = ({radius}: Props) => {
   );
 };
 
-export default BaseCard;
+export default Card;

@@ -15,7 +15,7 @@ const NotFoundPage: FC = () => {
     return () => clearTimeout(timer); // eslint-disable-next-line
   }, [countdown, setCountdown]);
 
-  return <div className='flex justify-center text-2xl text-red-300'>404 Not Found</div>;
+  return <div className='pt-20 flex justify-center text-2xl text-red-300'>404 Not Found</div>;
 };
 
 export default NotFoundPage;

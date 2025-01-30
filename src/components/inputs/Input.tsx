@@ -6,16 +6,13 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
   labelPosition?: 'left' | 'right' | 'over' | 'below';
 };
 
-const BaseInput = ({width, label, labelPosition = 'over', ...props}: Props) => {
+const Input = ({width, label, labelPosition = 'over', ...props}: Props) => {
   return (
     <div className='w-full' style={{width}}>
       <label className='font-semibold'>{label}</label>
-      <input
-        {...props}
-        className={`w-full h-8 rounded text-center text-black ${props.className}`}
-      />
+      <input {...props} className={`w-full h-8 ${props.className}`} />
     </div>
   );
 };
 
-export default BaseInput;
+export default Input;

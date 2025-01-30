@@ -6,16 +6,13 @@ type Props = InputHTMLAttributes<HTMLTextAreaElement> & {
   labelPosition?: 'left' | 'right' | 'over' | 'below';
 };
 
-const BaseTextarea = ({width, label, labelPosition = 'over', ...props}: Props) => {
+const Textarea = ({width, label, labelPosition = 'over', ...props}: Props) => {
   return (
     <div className='w-full' style={{width}}>
       <label className='font-semibold'>{label}</label>
-      <textarea
-        {...props}
-        className={`w-full text-center align-middle rounded text-black ${props.className}`}
-      />
+      <textarea {...props} className={`w-full ${props.className}`} />
     </div>
   );
 };
 
-export default BaseTextarea;
+export default Textarea;

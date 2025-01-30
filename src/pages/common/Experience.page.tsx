@@ -7,11 +7,11 @@ import {useRecoilValue} from 'recoil';
 import {languageAtom} from '../../atoms/language.atom';
 import {cvEN, cvPL} from '../../utils/constants';
 
-const CVPage = () => {
+const ExperiencePage = () => {
   const language = useRecoilValue(languageAtom);
 
   return (
-    <div className='flex items-center justify-center w-full h-full'>
+    <div className='pt-20 flex items-center justify-center w-full h-full'>
       <a href='/portfolio/assets/cv_en.pdf' target='_blank' rel='noopener noreferrer'>
         Open CV
       </a>
@@ -22,4 +22,4 @@ const CVPage = () => {
   );
 };
 
-export default CVPage;
+export default ExperiencePage;

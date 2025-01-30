@@ -1,6 +1,5 @@
 import '../../theme/themeSwitcher.css';
 
-/* eslint-disable react-hooks/exhaustive-deps */
 import usePreferredTheme from '../../hooks/usePreferredTheme';
 
 type Props = {

@@ -1,18 +1,17 @@
 import {Skill} from '../types/skill.type';
 
-import apiLogo from '../assets/api.png';
-import asanaLogo from '../assets/asana.svg';
-import bitbucketLogo from '../assets/bitbucket.svg';
-import firebaseLogo from '../assets/firebase.svg';
-import flutterLogo from '../assets/flutter.svg';
-import gitLogo from '../assets/git.svg';
-import githubLogo from '../assets/github.svg';
-import ionicLogo from '../assets/ionic.svg';
-import reactLogo from '../assets/react.svg';
-import reactNativeLogo from '../assets/react_native.svg';
-import recoilLogo from '../assets/recoil.svg';
-import supabaseLogo from '../assets/supabase.svg';
-import tailwindcssLogo from '../assets/tailwindcss.svg';
+import apiLogo from '../assets/logo/api.png';
+import asanaLogo from '../assets/logo/asana.svg';
+import bitbucketLogo from '../assets/logo/bitbucket.svg';
+import firebaseLogo from '../assets/logo/firebase.svg';
+import flutterLogo from '../assets/logo/flutter.svg';
+import gitLogo from '../assets/logo/git.svg';
+import githubLogo from '../assets/logo/github.svg';
+import ionicLogo from '../assets/logo/ionic.svg';
+import reactLogo from '../assets/logo/react.svg';
+import recoilLogo from '../assets/logo/recoil.svg';
+import supabaseLogo from '../assets/logo/supabase.svg';
+import tailwindcssLogo from '../assets/logo/tailwindcss.svg';
 
 export const skills: Skill[] = [
   {
@@ -45,7 +44,7 @@ export const skills: Skill[] = [
   {
     id: 3,
     name: 'React Native',
-    logo: reactNativeLogo,
+    logo: reactLogo,
     language: 'JavaScript',
     website: 'https://reactnative.dev/',
     description:
@@ -162,14 +161,14 @@ export const skills: Skill[] = [
   },
   {
     id: 14,
-    name: 'Xamarin',
+    name: 'skill #14',
     logo: apiLogo,
     website: '',
     description: '',
   },
   {
     id: 15,
-    name: 'C#',
+    name: 'skill #14',
     logo: apiLogo,
     website: '',
     description: '',

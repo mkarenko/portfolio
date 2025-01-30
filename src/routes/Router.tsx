@@ -3,11 +3,12 @@ import {isMobile} from 'react-device-detect';
 import {Route, Routes} from 'react-router-dom';
 import {useRecoilState} from 'recoil';
 
+import FloatingTopButton from 'src/components/buttons/FloatingTopButton';
+import {Header2} from 'src/components/Header2';
 import {languageAtom} from '../atoms/language.atom';
 import BurgerMenu from '../components/burgerMenu/BurgerMenu';
-import {Header} from '../components/Header';
 import ContactPage from '../pages/common/Contact.page';
-import CVPage from '../pages/common/CV.page';
+import ExperiencePage from '../pages/common/Experience.page';
 import HomePage from '../pages/common/Home.page';
 import NotFoundPage from '../pages/common/NotFound.page';
 import ProjectsPage from '../pages/projects/Projects.page';
@@ -15,29 +16,26 @@ import SkillsPage from '../pages/skills/Skills.page';
 import {cvEN, cvPL} from '../utils/constants';
 
 export type HeaderProps = {
-  currentLoc: string;
   handleDownloadPDF: () => void;
   handleSwitchLanguage: () => void;
 };
 
 const Router = () => {
-  const currentLocation = window.location.hash.replace('#', '');
-
   const [language, setLanguage] = useRecoilState(languageAtom);
 
   const [deviceType, setDeviceType] = useState<'mobile' | 'desktop' | null>(
     isMobile ? 'mobile' : 'desktop'
   );
 
-  const handleDeviceChange = () => {
-    if (window.innerWidth <= 768) {
-      setDeviceType('mobile');
-    } else {
-      setDeviceType('desktop');
-    }
-  };
-
   useEffect(() => {
+    const handleDeviceChange = () => {
+      if (window.innerWidth <= 768) {
+        setDeviceType('mobile');
+        return;
+      }
+      setDeviceType('desktop');
+    };
+
     window.addEventListener('resize', handleDeviceChange);
 
     return () => {
@@ -75,32 +73,31 @@ const Router = () => {
   return (
     <>
       {deviceType === 'desktop' && (
-        <Header
-          currentLoc={currentLocation}
-          handleDownloadPDF={handleDownloadPDF}
-          handleSwitchLanguage={handleSwitchLanguage}
-        />
+        <div>
+          <Header2 />
+          {/* <Header
+            handleDownloadPDF={handleDownloadPDF}
+            handleSwitchLanguage={handleSwitchLanguage}
+          /> */}
+
+          <FloatingTopButton />
+        </div>
       )}
+
       {deviceType === 'mobile' && (
         <BurgerMenu
-          currentLoc={currentLocation}
-          handleDownloadPDF={function (): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleSwitchLanguage={function (): void {
-            throw new Error('Function not implemented.');
-          }}
+          handleDownloadPDF={handleDownloadPDF}
+          handleSwitchLanguage={handleSwitchLanguage}
         />
       )}
 
       <Routes>
         <Route path='/' element={<HomePage />} />
 
-        <Route path='/about' element={<ContactPage />} />
         <Route path='/projects' element={<ProjectsPage />} />
         <Route path='/skills' element={<SkillsPage />} />
+        <Route path='/experience' element={<ExperiencePage />} />
         <Route path='/contact' element={<ContactPage />} />
-        <Route path='/cv' element={<CVPage />} />
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

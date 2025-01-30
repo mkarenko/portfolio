@@ -1,4 +1,4 @@
-import {boxClass} from '../../utils/constants';
+import {cardClass} from '../../utils/constants';
 
 type Props = {
   name: string;
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const SkillComponent = ({name, logo, language, description, url}: Props) => (
-  <div className={`${boxClass}`} onClick={() => (window.location.href = url)}>
+  <div className={`${cardClass}`} onClick={() => (window.location.href = url)}>
     <img alt='logo' src={logo} className='flex w-1/2 p-10 mx-auto' />
     <div className='text-2xl font-bold'>{name}</div>
     <div className='ml-2 text-sm'>{language ?? ''}</div>
