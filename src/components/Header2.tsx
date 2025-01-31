@@ -1,4 +1,3 @@
-import '../components/discoball/discoball.css';
 import '../theme/themeSwitcher.css';
 
 import {useState} from 'react';

@@ -1,6 +1,7 @@
 import 'ionicons/icons';
 import './theme/index.css';
 
+import {StrictMode} from 'react';
 import ReactDOM from 'react-dom/client';
 import {pdfjs} from 'react-pdf';
 import {HashRouter} from 'react-router-dom';
@@ -12,11 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <HashRouter>
-    {/* <StrictMode> */}
-    <RecoilRoot>
-      <App />
-    </RecoilRoot>
-    {/* </StrictMode> */}
+    <StrictMode>
+      <RecoilRoot>
+        <App />
+      </RecoilRoot>
+    </StrictMode>
   </HashRouter>
 );
 

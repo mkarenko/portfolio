@@ -23,6 +23,6 @@ export const navigationTabs = [
   {name: 'Home', path: '/'},
   {name: 'Skills', path: '/skills'},
   {name: 'Projects', path: '/projects'},
-  {name: 'Experience', path: '/experience'},
+  // {name: 'Experience', path: '/experience'},
   {name: 'Contact', path: '/contact'},
 ];

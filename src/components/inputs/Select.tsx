@@ -1,21 +1,28 @@
-import {InputHTMLAttributes, ReactNode} from 'react';
+import {motion} from 'motion/react';
 
-type Props = InputHTMLAttributes<HTMLSelectElement> & {
-  children: ReactNode;
-  width?: string;
-  label?: string;
-  labelPosition?: 'left' | 'right' | 'over' | 'below';
+type Props = {
+  name: string;
+  value: string | number;
+  items: any[];
+  renderItem: (item: any) => JSX.Element;
+  selectValue?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const Select = ({children, width, label, labelPosition = 'over', ...props}: Props) => {
+const AnimatedSelect = ({name, value, items, renderItem, selectValue}: Props) => {
   return (
-    <div className='w-full' style={{width}}>
-      <label className='font-semibold'>{label}</label>
-      <select {...props} className={`w-full h-8 text-center bg-white ${props.className}`}>
-        {children}
-      </select>
-    </div>
+    <motion.select
+      name={name}
+      value={value}
+      onChange={selectValue}
+      className='w-full py-3 px-2 flex rounded-xl shadow-md focus:outline-none text-black'
+    >
+      {items.map((item) => (
+        <motion.option key={item.value} value={item.value}>
+          {renderItem(item)}
+        </motion.option>
+      ))}
+    </motion.select>
   );
 };
 
-export default Select;
+export default AnimatedSelect;

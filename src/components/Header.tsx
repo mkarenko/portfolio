@@ -5,9 +5,9 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import {useRecoilValue} from 'recoil';
 
 import {motion} from 'motion/react';
+import {HeaderProps} from 'src/App';
 import {themeAtom} from 'src/atoms/theme.atom';
 import {navigationTabs, transparentClass} from 'src/utils/constants';
-import {HeaderProps} from '../routes/Router';
 import Button from './buttons/Button';
 import ThemeButton from './buttons/ThemeButton';
 import Icon from './Icon';

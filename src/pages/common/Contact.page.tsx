@@ -5,7 +5,6 @@ import Button from '../../components/buttons/Button';
 import ContactButton from '../../components/buttons/ContactButton';
 import CaptchaModal from '../../components/CaptchaModal';
 import Input from '../../components/inputs/Input';
-import Select from '../../components/inputs/Select';
 import Textarea from '../../components/inputs/TextArea';
 import {ContactFormType} from '../../types/contactForm.type';
 import {Country} from '../../types/country.type';
@@ -118,7 +117,7 @@ const ContactPage = () => {
           successfully, you'll get a confirmation on the email below.
         </div>
 
-        <div className='w-full flex flex-col sm:flex-row md:flex-col'>
+        <div className='w-full flex flex-col sm:flex-row md:flex-col space-y-2'>
           <ContactButton text='+48 692 566 688' icon={smartphone} href='tel:+48 692 566 688' />
           <ContactButton
             text='m.karenko@outlook.com'
@@ -167,17 +166,17 @@ const ContactPage = () => {
               if (value.length <= 12) handleDataChange(e);
             }}
           />
-          <Select
-            label='Country'
-            name='country'
-            value={formData.country}
-            className='px-4 text-start md:h-12 rounded-xl shrink'
-            onChange={handleDataChange}
-          >
-            {countries.map((country) => (
-              <option key={country.shortName} value={country.name} />
-            ))}
-          </Select>
+          <div className='w-full'>
+            <label className='font-semibold'>Country</label>
+            <select className='w-full h-8 text-start bg-white px-4 md:h-12 rounded-xl shrink'>
+              {countries.map((country) => (
+                <option key={country.shortName} value={country.name}>
+                  {country.flag} {country.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <Textarea
             label='Message'
             name='message'

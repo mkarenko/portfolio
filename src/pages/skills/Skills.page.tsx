@@ -1,8 +1,10 @@
+import Cursor from 'src/components/Cursor';
 import {skills} from '../../constants/skills';
 import SkillComponent from './Skill.component';
 
 const SkillsPage = () => (
   <div className='pt-12 md:pt-10'>
+    <Cursor />
     {skills.map((s) => (
       <div
         key={s.id}

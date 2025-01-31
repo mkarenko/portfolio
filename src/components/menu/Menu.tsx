@@ -1,15 +1,16 @@
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router';
-import {useRecoilValue} from 'recoil';
+import {useRecoilState, useRecoilValue} from 'recoil';
 
 import * as motion from 'motion/react-client';
+import {HeaderProps} from 'src/App';
+import {particlesAtom} from 'src/atoms/particles.atom';
 import {themeAtom} from 'src/atoms/theme.atom';
 import {transparentClass} from 'src/utils/constants';
-import {HeaderProps} from '../../routes/Router';
 import ThemeButton from '../buttons/ThemeButton';
 import Icon from '../Icon';
+import AnimationButtons from '../particles/AnimationButtons';
 
-import {language} from 'ionicons/icons';
 import colorPaletteIcon from '../../assets/icons/colorPallete.svg';
 import diamondIcon from '../../assets/icons/diamond.svg';
 import documentIcon from '../../assets/icons/document.svg';
@@ -17,10 +18,11 @@ import homeIcon from '../../assets/icons/home.svg';
 import phoneIcon from '../../assets/icons/phone.svg';
 
 import type {Variants} from 'motion/dist/react';
-const BurgerMenu = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
+const Menu = ({particlesRef, handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
   const navigate = useNavigate();
   const theme = useRecoilValue(themeAtom);
   const [open, setOpen] = useState<boolean>(false);
+  const [animationSettings, setAnimationSetings] = useRecoilState(particlesAtom);
 
   useEffect(() => {
     const menuDiv = document.getElementById('menu');
@@ -56,6 +58,18 @@ const BurgerMenu = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
     setOpen(false);
   };
 
+  const handlePlayAnimation = () => {
+    if (particlesRef?.current) particlesRef?.current.play();
+  };
+
+  const handlePauseAnimation = () => {
+    if (particlesRef?.current) particlesRef?.current.pause();
+  };
+
+  const handleAnimationSettings = () => {
+    if (particlesRef?.current) particlesRef?.current.pause();
+  };
+
   const navbarClass = 'absolute top-0 bottom-0 left-0 w-full h-full' + transparentClass(theme);
 
   return (
@@ -75,7 +89,8 @@ const BurgerMenu = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
           />
           <MenuItem text='Experience' icon={documentIcon} />
           <MenuItem text='Contact' icon={phoneIcon} navigate={() => handleNavigation('/contact')} />
-          <MenuItem text='Language' icon={language} />
+          {/* TODO implement multilanguages */}
+          {/* <MenuItem text='Language' icon={language} /> */}
         </motion.ul>
 
         <motion.ul
@@ -83,12 +98,19 @@ const BurgerMenu = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
           className='absolute bottom-0 p-8 flex flex-col justify-center items-center space-y-8'
         >
           <motion.li
-            className='cursor-pointer'
+            className='flex justify-center items-center space-x-5'
             variants={itemAnimations}
             whileHover={{scale: 1.1}}
             whileTap={{scale: 0.95}}
           >
             <ThemeButton width='40' height='40' />
+            <AnimationButtons
+              theme={theme}
+              currentSettings={animationSettings}
+              playAnimation={handlePlayAnimation}
+              pauseAnimation={handlePauseAnimation}
+              changeAnimationsSettings={handleAnimationSettings}
+            />
           </motion.li>
         </motion.ul>
       </motion.nav>
@@ -96,7 +118,7 @@ const BurgerMenu = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
   );
 };
 
-export default BurgerMenu;
+export default Menu;
 
 const MenuToggle = ({toggle}: {toggle: () => void}) => (
   <button className='absolute w-20 h-20 top-[3px] left-[28px]' onClick={toggle}>

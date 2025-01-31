@@ -11,7 +11,8 @@ const ContactButton = ({href, text, icon}: Props) => (
     href={href}
     target='_blank'
     rel='noreferrer'
-    className='w-fit p-2 underline flex items-center gap-x-4 text-lg md:text-xl'
+    className='w-fit p-2 underline flex items-center gap-x-4 text-lg md:text-xl bg-white
+    rounded-2xl dark:text-black'
   >
     <Icon src={icon} />
     {text}
