@@ -1,17 +1,16 @@
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router';
-import {useRecoilState, useRecoilValue} from 'recoil';
+import {useRecoilValue} from 'recoil';
 
 import * as motion from 'motion/react-client';
 import {HeaderProps} from 'src/App';
-import {particlesAtom} from 'src/atoms/particles.atom';
 import {themeAtom} from 'src/atoms/theme.atom';
 import {transparentClass} from 'src/utils/constants';
 import ThemeButton from '../buttons/ThemeButton';
 import Icon from '../Icon';
 import AnimationButtons from '../particles/AnimationButtons';
 
-import colorPaletteIcon from '../../assets/icons/colorPallete.svg';
+import colorPaletteIcon from '../../assets/icons/color-pallete.svg';
 import diamondIcon from '../../assets/icons/diamond.svg';
 import documentIcon from '../../assets/icons/document.svg';
 import homeIcon from '../../assets/icons/home.svg';
@@ -22,7 +21,6 @@ const Menu = ({particlesRef, handleDownloadPDF, handleSwitchLanguage}: HeaderPro
   const navigate = useNavigate();
   const theme = useRecoilValue(themeAtom);
   const [open, setOpen] = useState<boolean>(false);
-  const [animationSettings, setAnimationSetings] = useRecoilState(particlesAtom);
 
   useEffect(() => {
     const menuDiv = document.getElementById('menu');
@@ -45,6 +43,15 @@ const Menu = ({particlesRef, handleDownloadPDF, handleSwitchLanguage}: HeaderPro
     };
   }, []);
 
+  useEffect(() => {
+    if (open) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'auto';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [open]);
+
   const handleNavigation = (path: string) => {
     if (path === '/experience') {
       return (
@@ -58,63 +65,63 @@ const Menu = ({particlesRef, handleDownloadPDF, handleSwitchLanguage}: HeaderPro
     setOpen(false);
   };
 
-  const handlePlayAnimation = () => {
+  const handleToggleAnimation = () => {
     if (particlesRef?.current) particlesRef?.current.play();
-  };
-
-  const handlePauseAnimation = () => {
-    if (particlesRef?.current) particlesRef?.current.pause();
-  };
-
-  const handleAnimationSettings = () => {
-    if (particlesRef?.current) particlesRef?.current.pause();
   };
 
   const navbarClass = 'absolute top-0 bottom-0 left-0 w-full h-full' + transparentClass(theme);
 
   return (
-    <div id='menu' className='fixed w-screen md:max-w-xs h-screen overflow-hidden z-10'>
-      <motion.nav initial={false} animate={open ? 'open' : 'closed'}>
-        <motion.div variants={sidebarAnimations} className={navbarClass} />
-
-        <MenuToggle toggle={() => setOpen(!open)} />
-
-        <motion.ul variants={navAnimations} className='h-[60%] absolute p-8 top-20 space-y-5'>
-          <MenuItem text='Home' icon={homeIcon} navigate={() => handleNavigation('/')} />
-          <MenuItem text='Skills' icon={diamondIcon} navigate={() => handleNavigation('/skills')} />
-          <MenuItem
-            text='Projects'
-            icon={colorPaletteIcon}
-            navigate={() => handleNavigation('/projects')}
-          />
-          <MenuItem text='Experience' icon={documentIcon} />
-          <MenuItem text='Contact' icon={phoneIcon} navigate={() => handleNavigation('/contact')} />
-          {/* TODO implement multilanguages */}
-          {/* <MenuItem text='Language' icon={language} /> */}
-        </motion.ul>
-
-        <motion.ul
-          variants={navAnimations}
-          className='absolute bottom-0 p-8 flex flex-col justify-center items-center space-y-8'
+    <motion.nav
+      id='menu'
+      initial={false}
+      animate={open ? 'open' : 'closed'}
+      className='z-10 absolute top-0 bottom-0 left-0 right-0 w-full h-full md:w-[300px]'
+    >
+      <motion.div variants={sidebarAnimations} className={navbarClass} />
+      <MenuToggle toggle={() => setOpen(!open)} />
+      <motion.ul variants={navAnimations} className='absolute p-8 top-20 space-y-5'>
+        <MenuItem text='Home' icon={homeIcon} navigate={() => handleNavigation('/')} />
+        <MenuItem text='Skills' icon={diamondIcon} navigate={() => handleNavigation('/skills')} />
+        <MenuItem
+          text='Projects'
+          icon={colorPaletteIcon}
+          navigate={() => handleNavigation('/projects')}
+        />
+        <MenuItem text='Experience' icon={documentIcon} />
+        <MenuItem text='Contact' icon={phoneIcon} navigate={() => handleNavigation('/contact')} />
+        {/* TODO implement multilanguages */}
+        {/* <MenuItem text='Language' icon={language} /> */}
+      </motion.ul>
+      <motion.ul
+        variants={navAnimations}
+        className='absolute left-5 bottom-5 flex justify-center items-center'
+      >
+        <motion.li
+          variants={itemAnimations}
+          whileHover={{scale: 1.1}}
+          whileTap={{scale: 0.95}}
+          className='mt-1.5 mr-2.5'
         >
-          <motion.li
-            className='flex justify-center items-center space-x-5'
-            variants={itemAnimations}
-            whileHover={{scale: 1.1}}
-            whileTap={{scale: 0.95}}
-          >
-            <ThemeButton width='40' height='40' />
-            <AnimationButtons
-              theme={theme}
-              currentSettings={animationSettings}
-              playAnimation={handlePlayAnimation}
-              pauseAnimation={handlePauseAnimation}
-              changeAnimationsSettings={handleAnimationSettings}
-            />
-          </motion.li>
-        </motion.ul>
-      </motion.nav>
-    </div>
+          <ThemeButton size='34' />
+        </motion.li>
+
+        <motion.li
+          className='flex items-center space-x-2 cursor-pointer'
+          variants={itemAnimations}
+          whileHover={{scale: 1.1}}
+          whileTap={{scale: 0.95}}
+        >
+          <AnimationButtons
+            theme={theme}
+            iconSize='40px'
+            currentAnimation={{}}
+            toggleAnimation={handleToggleAnimation}
+            changeAnimationsSettings={() => void ''}
+          />
+        </motion.li>
+      </motion.ul>
+    </motion.nav>
   );
 };
 

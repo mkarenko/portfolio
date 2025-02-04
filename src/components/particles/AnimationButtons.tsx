@@ -1,143 +1,107 @@
-import {ChangeEvent, ElementType, useState} from 'react';
+import {ChangeEvent, useState} from 'react';
 
-import {AnimatePresence} from 'motion/react';
-import {AnimationSettings} from 'src/types/particles.type';
+import {ISourceOptions} from '@tsparticles/engine';
+
 import {Theme} from 'src/types/theme.type';
 import {colors} from 'src/utils/colors';
-import {particlesAnimations} from 'src/utils/particles';
+import {animations} from 'src/utils/particles';
 import Button from '../buttons/Button';
-import Checkbox from '../Checkbox';
 import Icon from '../Icon';
+import {Checkbox} from '../inputs/Checkbox';
 import Select from '../inputs/Select';
 import Slider from '../inputs/Slider';
 import Modal from '../Modal';
 
-import pause from '../../assets/icons/pause.svg';
-import play from '../../assets/icons/play.svg';
-import settings from '../../assets/icons/settings.svg';
+import playPauseIcon from '../../assets/icons/play-pause.svg';
 
 type Props = {
   theme: Theme;
   iconSize?: string;
-  currentSettings: AnimationSettings;
-  playAnimation: () => void;
-  pauseAnimation: () => void;
+  currentAnimation: ISourceOptions;
+  toggleAnimation: () => void;
   changeAnimationsSettings: (e: ChangeEvent<any>) => void;
 };
 
-const AnimatePresenceFixedType = AnimatePresence as ElementType;
-
 const AnimationButtons = ({
   theme,
-  iconSize = '24',
-  currentSettings,
-  playAnimation,
-  pauseAnimation,
+  iconSize = '24px',
+  currentAnimation,
+  toggleAnimation,
   changeAnimationsSettings,
 }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
     <>
-      <Button id='play-bg' className='w-10 h-10 hover:cursor-pointer' onClick={playAnimation}>
-        <Icon src={play} size={iconSize} />
-      </Button>
-      <Button id='pause-bg' className='w-10 h-10 hover:cursor-pointer' onClick={pauseAnimation}>
-        <Icon src={pause} size={iconSize} />
-      </Button>
       <Button
-        id='settings-bg'
-        className='w-10 h-10 hover:cursor-pointer'
-        onClick={() => setOpen(true)}
+        id='toggle-animation'
+        className='w-10 h-10 flex justify-center items-center'
+        onClick={toggleAnimation}
       >
-        <Icon src={settings} size={iconSize} />
+        <Icon src={playPauseIcon} size={iconSize} />
       </Button>
 
-      <AnimatePresenceFixedType>
-        {open && (
-          <Modal closeModal={() => setOpen(false)}>
-            <div className='h-full flex flex-col justify-between items-center space-y-4'>
-              <div className='w-full flex justify-between items-center'>
-                <label className='font-semibold'>Auto play</label>
-                <Checkbox
-                  name='autoPlay'
-                  value={currentSettings.config.autoPlay!}
-                  onChange={changeAnimationsSettings}
-                />
-              </div>
+      {/* <Button
+        id='animation-settings'
+        className='w-10 h-10 flex justify-center items-center'
+        onClick={(e: any) => {
+          e.stopPropagation();
+          setOpen(true);
+        }}
+      >
+        <Icon src={cogIcon} size={iconSize} />
+      </Button> */}
 
-              <div className='w-full flex flex-col'>
-                <label className='font-semibold'>Max fps</label>
-                <Slider
-                  name='fps'
-                  min={30}
-                  max={120}
-                  value={currentSettings.config.fpsLimit!}
-                  onChange={changeAnimationsSettings}
-                />
-              </div>
-
-              <div className='w-full flex flex-col'>
-                <div className='font-semibold'>Animation</div>
-                <Select
-                  name='animation'
-                  value={currentSettings.animation}
-                  items={particlesAnimations(theme)}
-                  renderItem={(item) => (
-                    <div className='w-1/2 flex justify-start items-center space-x-2'>
-                      <div className='w-10 h-10 rounded-2xl' style={{background: item.hex}} />
-                      <div>{item.name}</div>
-                    </div>
-                  )}
-                />
-              </div>
-
-              <div className='w-full flex flex-col'>
-                <div className='font-semibold'>Background color</div>
-                <Select
-                  name='backgroundColor'
-                  value={currentSettings.bgColor.name}
-                  items={colors}
-                  renderItem={(item) => (
-                    <div className='w-1/2 flex justify-start items-center space-x-2'>
-                      <div className='w-10 h-10 rounded-2xl' style={{backgroundColor: item.hex}} />
-                      <div>{item.name}</div>
-                    </div>
-                  )}
-                  selectValue={changeAnimationsSettings}
-                />
-              </div>
-
-              <div className='w-full flex flex-col'>
-                <div className='font-semibold'>Main color</div>
-                <Select
-                  name='mainColor'
-                  value={currentSettings.mainColor.name}
-                  items={colors}
-                  renderItem={(item) => (
-                    <div className='w-1/2 flex justify-start items-center space-x-2'>
-                      <div className='w-10 h-10 rounded-2xl' style={{background: item.hex}} />
-                      <div>{item.name}</div>
-                    </div>
-                  )}
-                  selectValue={changeAnimationsSettings}
-                />
-              </div>
-
-              <div className='w-full flex flex-col'>
-                <div className='font-semibold'>Accent color</div>
-                <Select
-                  name='accentColor'
-                  value={currentSettings.accentColor.name}
-                  items={colors}
-                  renderItem={(item) => <div className='text-red-500'>{item.name}</div>}
-                  selectValue={changeAnimationsSettings}
-                />
-              </div>
-            </div>
-          </Modal>
-        )}
-      </AnimatePresenceFixedType>
+      {open && (
+        <Modal closeModal={() => setOpen(false)}>
+          <div className='w-full flex justify-between items-center'>
+            <label className='font-semibold'>Auto play</label>
+            <Checkbox
+              name='autoPlay'
+              size={34}
+              check={currentAnimation.autoPlay ?? true}
+              setChecked={changeAnimationsSettings}
+            />
+          </div>
+          <div className='w-full flex flex-col'>
+            <label className='font-semibold'>Max fps</label>
+            <Slider
+              name='fpsLimit'
+              min={30}
+              max={120}
+              defaultValue={currentAnimation?.fpsLimit!}
+              onChange={changeAnimationsSettings}
+            />
+          </div>
+          <div className='w-full flex flex-col'>
+            <div className='font-semibold'>Animation</div>
+            <Select
+              // name='name'
+              // defaultValue={currentAnimation.name}
+              items={animations(theme)}
+              // onChange={changeAnimationsSettings}
+            />
+          </div>
+          <div className='w-full flex flex-col'>
+            <div className='font-semibold'>Main color</div>
+            <Select
+              // name='mainColor'
+              // defaultValue={currentAnimation.background?.color?.toString()}
+              items={colors}
+              // onChange={changeAnimationsSettings}
+            />
+          </div>
+          <div className='w-full flex flex-col'>
+            <div className='font-semibold'>Accent color</div>
+            <Select
+              // name='accentColor'
+              // defaultValue={currentAnimation.background?.color?.toString()}
+              items={colors}
+              // onChange={changeAnimationsSettings}
+            />
+          </div>
+        </Modal>
+      )}
     </>
   );
 };

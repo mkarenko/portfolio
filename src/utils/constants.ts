@@ -1,3 +1,6 @@
+import {ElementType} from 'react';
+
+import {AnimatePresence} from 'motion/react';
 import {Theme} from 'src/types/theme.type';
 
 export const baseUrl = process.env.PUBLIC_URL;
@@ -26,3 +29,5 @@ export const navigationTabs = [
   // {name: 'Experience', path: '/experience'},
   {name: 'Contact', path: '/contact'},
 ];
+
+export const AnimatePresenceFixedType = AnimatePresence as ElementType;

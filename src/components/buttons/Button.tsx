@@ -1,18 +1,14 @@
-import {forwardRef, ReactNode} from 'react';
+import {forwardRef} from 'react';
 
 import {HTMLMotionProps, motion} from 'motion/react';
 
-type ButtonProps = HTMLMotionProps<'button'> & {
-  children?: ReactNode;
-};
-
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(({children, ...props}, ref) => {
-  return (
-    <motion.button {...props} ref={ref} whileHover={{scale: 1.2}} whileTap={{scale: 0.8}}>
+const Button = forwardRef<HTMLButtonElement, HTMLMotionProps<'button'>>(
+  ({children, ...props}, ref) => (
+    <motion.button ref={ref} whileHover={{scale: 1.2}} whileTap={{scale: 0.8}} {...props}>
       {children}
     </motion.button>
-  );
-});
+  )
+);
 
 Button.displayName = 'Button';
 

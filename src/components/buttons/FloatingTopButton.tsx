@@ -9,7 +9,7 @@ const FloatingTopButton = () => {
   return (
     <motion.div
       style={{opacity: visible}}
-      className='fixed bottom-10 right-10'
+      className='z-20 fixed bottom-10 right-10'
       animate={{y: [-10, 10, -10]}}
       transition={{
         duration: 2,

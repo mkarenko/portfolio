@@ -1,42 +1,33 @@
-import {useState} from 'react';
+import {forwardRef, useState} from 'react';
 
-import {motion} from 'motion/react';
+import {HTMLMotionProps, motion} from 'motion/react';
 
-type Props = {
-  min: number;
-  max: number;
-  value: number;
-  name?: string;
-  onChange: (e: any) => void;
-};
-
-const Slider = ({min, max, value, name, onChange}: Props) => {
-  const [sliderValue, setSliderValue] = useState(value);
+const Slider = forwardRef<HTMLInputElement, HTMLMotionProps<'input'>>(({...props}, ref) => {
+  const [sliderValue, setSliderValue] = useState(props.value);
 
   const handleSliderChange = (e: any) => {
     const newValue = parseFloat(e.target.value);
 
     setSliderValue(newValue);
-    onChange(e);
+    if (props.onChange) props.onChange(e);
   };
 
   return (
     <motion.div className='flex justify-center items-center py-3 space-x-4'>
-      <motion.div>{min}</motion.div>
+      <motion.div>{props.min}</motion.div>
       <motion.input
-        name={name}
-        min={min}
-        max={max}
+        ref={ref}
         type='range'
         value={sliderValue}
         variants={sliderVariants}
+        className='w-full accent-[#9E0030] cursor-pointer'
         onChange={handleSliderChange}
-        className='w-full cursor-pointer'
+        {...props}
       />
-      <motion.div>{max}</motion.div>
+      <motion.div>{props.max}</motion.div>
     </motion.div>
   );
-};
+});
 
 export default Slider;
 

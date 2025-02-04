@@ -138,34 +138,29 @@ const ContactPage = () => {
             type='text'
             name='name'
             maxLength={20}
-            label='Name and Surname/Company Name*'
             placeholder='name'
             value={formData.name}
-            className='px-4 text-start md:h-12 rounded-xl shrink'
             onChange={handleDataChange}
           />
           <Input
             type='text'
             name='email'
             maxLength={32}
-            label='Email*'
             placeholder='example@email.com'
             value={formData.email}
-            className='px-4 text-start md:h-12 rounded-xl shrink'
             onChange={handleDataChange}
           />
           <Input
-            label='Phone number'
             type='number'
             name='phoneNumber'
             placeholder='678 345 129'
             value={formData.phoneNumber}
-            className='px-4 text-start md:h-12 rounded-xl shrink'
             onChange={(e) => {
               const value = e.target.value;
               if (value.length <= 12) handleDataChange(e);
             }}
           />
+          {/* TODO change for Select Component */}
           <div className='w-full'>
             <label className='font-semibold'>Country</label>
             <select className='w-full h-8 text-start bg-white px-4 md:h-12 rounded-xl shrink'>

@@ -6,7 +6,6 @@ export type AnimationSettings = {
   autoPlay: boolean;
   animation: 'links' | 'triangles' | 'snow' | 'stars';
   fps: number;
-  bgColor: ColorType;
   mainColor: ColorType;
   accentColor: ColorType;
   config: RecursivePartial<IOptions>;

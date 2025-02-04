@@ -8,7 +8,7 @@ import {firstVisitAtom} from './atoms/firstVisit.atom';
 import {languageAtom} from './atoms/language.atom';
 import {themeAtom} from './atoms/theme.atom';
 import FloatingTopButton from './components/buttons/FloatingTopButton';
-import {Header2} from './components/Header2';
+import {Header} from './components/Header';
 import Menu from './components/menu/Menu';
 import ParticlesBackground from './components/particles/ParticlesBackground';
 import Router from './routes/Router';
@@ -59,13 +59,6 @@ const App = () => {
     };
   }, []);
 
-  const handleSwitchLanguage = () => {
-    const newLanguage = language === 'en' ? 'pl' : 'en';
-    setLanguage(newLanguage);
-
-    localStorage.setItem('language', newLanguage);
-  };
-
   const handleDownloadPDF = () => {
     let pdfUrl: string = '';
     let fileName: string = '';
@@ -91,7 +84,7 @@ const App = () => {
       <ParticlesBackground ref={particlesRef} theme={theme} />
       <FloatingTopButton />
 
-      {deviceType === 'desktop' && <Header2 />}
+      {deviceType === 'desktop' && <Header />}
       {deviceType === 'mobile' && (
         <Menu particlesRef={particlesRef} theme={theme} handleDownloadPDF={handleDownloadPDF} />
       )}
