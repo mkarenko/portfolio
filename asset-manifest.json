@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.290d7fc4.css",
-    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.85b967dd.js",
+    "main.css": "https://mkarenko.github.io/portfolio/static/css/main.9baa5c05.css",
+    "main.js": "https://mkarenko.github.io/portfolio/static/js/main.bb9f25a3.js",
     "static/media/pdf.worker.min.mjs": "https://mkarenko.github.io/portfolio/static/media/pdf.worker.min.2a1f575db5df84b52c4b.mjs",
     "static/media/api.png": "https://mkarenko.github.io/portfolio/static/media/api.aceeff496910c356de58.png",
     "static/media/persoklick.svg": "https://mkarenko.github.io/portfolio/static/media/persoklick.e5c2bee5385a7b11ed5a9eb63e5eb87b.svg",
     "static/media/supabase.svg": "https://mkarenko.github.io/portfolio/static/media/supabase.a7c08aff547b12db0cce99366bda7d57.svg",
     "static/media/flutter.svg": "https://mkarenko.github.io/portfolio/static/media/flutter.83f07cb2f4c1498e672c5ea04d1dc7d1.svg",
+    "static/media/play-pause.svg": "https://mkarenko.github.io/portfolio/static/media/play-pause.c38859a7631c0994b6fc36eda9ff0f57.svg",
     "static/media/git.svg": "https://mkarenko.github.io/portfolio/static/media/git.4ca5934803a48fb5016200fc37584de8.svg",
     "static/media/github.svg": "https://mkarenko.github.io/portfolio/static/media/github.af841cad79b507ad660b3a9c2c99f1ad.svg",
     "static/media/asana.svg": "https://mkarenko.github.io/portfolio/static/media/asana.0a8adb72d4f64fbebeb6a2177aa357d8.svg",
     "index.html": "https://mkarenko.github.io/portfolio/index.html",
     "static/media/bitbucket.svg": "https://mkarenko.github.io/portfolio/static/media/bitbucket.d391ca23a0b7e45467c45487e8eb6449.svg",
     "static/media/tailwindcss.svg": "https://mkarenko.github.io/portfolio/static/media/tailwindcss.79614a5f61617ba49a0891494521226b.svg",
+    "static/media/color-pallete.svg": "https://mkarenko.github.io/portfolio/static/media/color-pallete.216dbbbd1e07c4ca6cd6df7995fb0cf6.svg",
     "static/media/phone.svg": "https://mkarenko.github.io/portfolio/static/media/phone.ded5d53523f5bc21887b52cfe6d8c86d.svg",
-    "static/media/colorPallete.svg": "https://mkarenko.github.io/portfolio/static/media/colorPallete.13bdf990fb51d21ec9fb819abff71377.svg",
     "static/media/ionic.svg": "https://mkarenko.github.io/portfolio/static/media/ionic.f36efee7c996a4774e50aae5eaf74f86.svg",
     "static/media/diamond.svg": "https://mkarenko.github.io/portfolio/static/media/diamond.f61993ee1d46d1f28fb8dd20b14c30af.svg",
     "static/media/firebase.svg": "https://mkarenko.github.io/portfolio/static/media/firebase.82a35fc0b90d124a8e7333989f767fd3.svg",
@@ -26,12 +27,14 @@
     "static/media/mail.svg": "https://mkarenko.github.io/portfolio/static/media/mail.bf250ec6206325bf79f1e3d562c0f029.svg",
     "static/media/react.svg": "https://mkarenko.github.io/portfolio/static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
     "static/media/link.svg": "https://mkarenko.github.io/portfolio/static/media/link.f07792dd8f88440acb45385023a492ac.svg",
+    "static/media/arrow-up.svg": "https://mkarenko.github.io/portfolio/static/media/arrow-up.061236472dc6ecaaa65a459b9cc4b0de.svg",
+    "static/media/close.svg": "https://mkarenko.github.io/portfolio/static/media/close.d4aee1cabe5f30512b8cfddb628c057d.svg",
     "static/media/checkmark.svg": "https://mkarenko.github.io/portfolio/static/media/checkmark.a35b71352778efa2e39a86af94bc69f1.svg",
-    "main.290d7fc4.css.map": "https://mkarenko.github.io/portfolio/static/css/main.290d7fc4.css.map",
-    "main.85b967dd.js.map": "https://mkarenko.github.io/portfolio/static/js/main.85b967dd.js.map"
+    "main.9baa5c05.css.map": "https://mkarenko.github.io/portfolio/static/css/main.9baa5c05.css.map",
+    "main.bb9f25a3.js.map": "https://mkarenko.github.io/portfolio/static/js/main.bb9f25a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.290d7fc4.css",
-    "static/js/main.85b967dd.js"
+    "static/css/main.9baa5c05.css",
+    "static/js/main.bb9f25a3.js"
   ]
 }
