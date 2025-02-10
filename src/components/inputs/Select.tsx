@@ -1,22 +1,43 @@
-import {FocusEvent, useEffect, useRef, useState} from 'react';
+import {FocusEvent, ReactNode, useEffect, useRef, useState} from 'react';
+import {useRecoilValue} from 'recoil';
 
 import {motion, Variants} from 'motion/react';
-import {ColoredBox} from '../ColoredBox';
+import {menuAtom} from 'src/atoms/menu.atom';
+import {colors, Validity} from 'src/pages/common/Contact.page';
 import Icon from '../Icon';
 
 import arrowUpIcon from '../../assets/icons/arrow-up.svg';
 
-const Select = ({items}: {items: any[]}) => {
+const Select = ({
+  keyName,
+  items,
+  defaultValue,
+  renderItem,
+  renderSelected,
+  onSelect,
+}: {
+  keyName: string;
+  items: any[];
+  defaultValue?: string | ReactNode;
+  renderItem: (item: any) => ReactNode;
+  renderSelected?: (selected: any) => ReactNode;
+  onSelect: (value: any) => void;
+}) => {
+  const navRef = useRef<HTMLDivElement | null>(null);
   const listRef = useRef<HTMLUListElement | null>(null);
   const selectButtonRef = useRef<HTMLButtonElement | null>(null);
 
+  const menuOpen = useRecoilValue(menuAtom);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<any | null>(null);
   const [position, setPosition] = useState<'top' | 'bottom'>('bottom');
 
+  const color = colors[Validity.Neutral];
+
   useEffect(() => {
     const list = listRef.current;
     const selecteButton = selectButtonRef.current;
+
     if (open && list && selecteButton) {
       const listRect = list.getBoundingClientRect();
       const buttonRect = selecteButton.getBoundingClientRect();
@@ -30,35 +51,44 @@ const Select = ({items}: {items: any[]}) => {
   }, [open]);
 
   const handelSelect = (item: any) => {
+    if (!navRef.current) return;
+    const selectName = navRef.current.getAttribute('id');
+
+    onSelect({target: {name: selectName, value: item}});
     setSelected(item);
     setOpen(false);
   };
 
   const handleHideSelect = (e: FocusEvent<HTMLElement, Element>) => {
-    if (!e.currentTarget.contains(e.relatedTarget)) {
-      setOpen(false);
-    }
+    if (!e.currentTarget.contains(e.relatedTarget)) setOpen(false);
   };
+
+  const itemCss = 'w-full flex justify-center items-center space-x-3';
 
   return (
     <motion.nav
+      id={keyName}
+      ref={navRef}
       initial={false}
       animate={open ? 'open' : 'closed'}
-      className='relative w-full rounded-lg cursor-pointer text-black bg-white'
+      style={{zIndex: menuOpen ? '-10' : '10', transition: 'z-index 0.8s ease-in-out'}}
+      className='w-full relative my-1 text-center text-black rounded-lg cursor-pointer'
       onBlur={handleHideSelect}
     >
       <motion.button
         ref={selectButtonRef}
+        initial={false}
+        animate={{boxShadow: `0 0 0 2px ${color(0.7)}, 0 0 0 1px ${color(0)}`}}
         whileTap={{scale: 0.9}}
         onClick={() => setOpen(!open)}
-        className='w-full p-2 flex justify-between items-center rounded-lg focus:border border-primary'
+        className='w-full flex justify-between items-center py-1 bg-white rounded-lg'
       >
-        {selected === null && <div className='px-2'>Select</div>}
+        {selected === null && defaultValue === undefined && <div className={itemCss}>Select</div>}
+        {selected === null && defaultValue !== undefined && (
+          <div className={itemCss}>{defaultValue}</div>
+        )}
         {selected && (
-          <div className='flex justify-evenly items-center space-x-3 font-bold'>
-            <div>{selected.hex && <ColoredBox color={selected.hex} />}</div>
-            <div>{selected.name}</div>
-          </div>
+          <div className={itemCss}>{renderSelected ? renderSelected(selected) : selected.name}</div>
         )}
         <motion.div
           variants={{open: {rotate: 180}, closed: {rotate: 0}}}
@@ -76,24 +106,32 @@ const Select = ({items}: {items: any[]}) => {
           pointerEvents: open ? 'auto' : 'none',
           top: position === 'bottom' ? '100%' : 'auto',
           bottom: position === 'top' ? '100%' : 'auto',
+          borderRadius: '0.5rem',
+          borderColor: color(0.7),
+          borderWidth: '2px',
         }}
-        className='absolute z-20 left-0 right-0 flex flex-col items-center max-h-[300px] space-y-2
-        bg-white rounded-b-lg overflow-y-scroll overflow-hidden'
+        className='absolute left-0 right-0 max-h-[300px] space-y-2 bg-white rounded-b-lg
+        overflow-y-scroll overflow-hidden'
       >
         {items.map((item: any) => (
           <motion.li
-            key={item.id ?? item.key}
+            key={item.id ?? item.key ?? item.shortName}
             value={item}
-            whileHover={{scale: 1.03}}
+            whileHover={{
+              scale: 1.03,
+              color: '#FFF',
+              backgroundColor: '#9E0030',
+            }}
+            style={{
+              color: selected === item ? '#FFF' : '#000',
+              backgroundColor: selected === item ? '#9E0030' : '#FFF',
+            }}
             whileTap={{scale: 0.97}}
             variants={itemVariants}
-            className='p-2 flex justify-center items-center space-x-3 cursor-pointer'
+            className={`${itemCss} py-2`}
             onClick={() => handelSelect(item)}
           >
-            <div className='flex justify-evenly items-center space-x-3 font-bold'>
-              <div>{item.hex && <ColoredBox color={item.hex} />}</div>
-              <div>{item.name}</div>
-            </div>
+            {renderItem !== undefined ? renderItem(item) : <motion.div>{item.name}</motion.div>}
           </motion.li>
         ))}
       </motion.ul>

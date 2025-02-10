@@ -23,11 +23,31 @@ export const transparentClass = (theme: Theme): string =>
   }`;
 
 export const navigationTabs = [
-  {name: 'Home', path: '/'},
-  {name: 'Skills', path: '/skills'},
-  {name: 'Projects', path: '/projects'},
-  // {name: 'Experience', path: '/experience'},
-  {name: 'Contact', path: '/contact'},
+  {
+    id: 1,
+    name: 'Home',
+    path: '/',
+  },
+  {
+    id: 2,
+    name: 'Skills',
+    path: '/skills',
+  },
+  {
+    id: 3,
+    name: 'Projects',
+    path: '/projects',
+  },
+  {
+    id: 4,
+    name: 'Experience',
+    path: '/experience',
+  },
+  {
+    id: 5,
+    name: 'Contact',
+    path: '/contact',
+  },
 ];
 
 export const AnimatePresenceFixedType = AnimatePresence as ElementType;

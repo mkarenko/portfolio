@@ -1,4 +1,5 @@
 import Icon from '../Icon';
+import Button from './Button';
 
 type Props = {
   href: string;
@@ -7,16 +8,12 @@ type Props = {
 };
 
 const ContactButton = ({href, text, icon}: Props) => (
-  <a
-    href={href}
-    target='_blank'
-    rel='noreferrer'
-    className='w-fit p-2 underline flex items-center gap-x-4 text-lg md:text-xl bg-white
-    rounded-2xl dark:text-black'
-  >
+  <Button className='w-fit flex justify-center items-center p-2 space-x-4 text-lg text-black bg-white rounded-xl border-2 border-black md:text-xl'>
     <Icon src={icon} />
-    {text}
-  </a>
+    <a href={href} target='_blank' rel='noreferrer'>
+      {text}
+    </a>
+  </Button>
 );
 
 export default ContactButton;

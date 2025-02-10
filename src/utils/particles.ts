@@ -7,7 +7,7 @@ export const animations = (theme: Theme): RecursivePartial<IOptions>[] => [
     key: 'links',
     name: 'Links',
     autoPlay: true,
-    // background: {color: {value: theme === 'dark' ? '#000' : '#fff'}},
+    background: {color: {value: theme === 'dark' ? '#000' : '#fff'}},
     fpsLimit: 60,
     detectRetina: true,
     pauseOnBlur: true,
@@ -42,92 +42,11 @@ export const animations = (theme: Theme): RecursivePartial<IOptions>[] => [
       number: {
         density: {enable: true},
         value: 80,
+        limit: {value: 250},
       },
       opacity: {value: 0.5},
       shape: {type: 'circle'},
       size: {value: {min: 1, max: 5}},
-    },
-  },
-  {
-    key: 'triangles',
-    name: 'Triangles',
-    autoPlay: true,
-    background: {color: '#333333'},
-    fpsLimit: 60,
-    detectRetina: true,
-    pauseOnBlur: true,
-    pauseOnOutsideViewport: true,
-    interactivity: {
-      events: {
-        onClick: {enable: true, mode: 'push'},
-        onHover: {enable: true, mode: 'repulse'},
-      },
-      modes: {
-        push: {quantity: 4},
-        repulse: {distance: 200, duration: 0.4},
-      },
-    },
-    particles: {
-      color: {value: theme === 'dark' ? '#fff' : '#000'},
-      links: {
-        color: '#9E0030',
-        distance: 150,
-        enable: true,
-        opacity: 0.5,
-        width: 1,
-      },
-      move: {
-        direction: MoveDirection.none,
-        enable: true,
-        outModes: {default: OutMode.out},
-        random: false,
-        speed: 6,
-        straight: false,
-      },
-      number: {
-        density: {enable: true},
-        value: 80,
-      },
-      opacity: {value: 0.5},
-      shape: {type: 'circle'},
-      size: {value: {min: 1, max: 5}},
-    },
-  },
-  {
-    key: 'snow',
-    name: 'Snow',
-    autoPlay: true,
-    background: {color: '#333333'},
-    fpsLimit: 60,
-    detectRetina: true,
-    pauseOnBlur: true,
-    pauseOnOutsideViewport: true,
-    particles: {
-      number: {
-        value: 1000,
-        density: {
-          enable: true,
-          width: 1024,
-          height: 1024,
-        },
-      },
-      move: {
-        direction: MoveDirection.topRight,
-        enable: true,
-        speed: 0.2,
-        straight: true,
-      },
-      opacity: {
-        animation: {
-          enable: true,
-          speed: 0.1,
-          sync: false,
-        },
-        value: {min: 0, max: 1},
-      },
-      size: {
-        value: {min: 0.2, max: 1.5},
-      },
     },
   },
   {
@@ -135,7 +54,7 @@ export const animations = (theme: Theme): RecursivePartial<IOptions>[] => [
     name: 'Stars',
     autoPlay: true,
     background: {color: '#000'},
-    fpsLimit: 60,
+    fpsLimit: 30,
     detectRetina: true,
     pauseOnBlur: true,
     pauseOnOutsideViewport: true,
@@ -143,7 +62,6 @@ export const animations = (theme: Theme): RecursivePartial<IOptions>[] => [
       number: {
         value: 1000,
         density: {
-          // of course we want the value to be relative to screen size
           enable: true,
           width: 1024,
           height: 1024,
@@ -168,4 +86,45 @@ export const animations = (theme: Theme): RecursivePartial<IOptions>[] => [
       },
     },
   },
+  // {
+  //   key: 'snow',
+  //   name: 'Snow',
+  //   autoPlay: true,
+  //   background: {color: '#000'},
+  //   fpsLimit: 30,
+  //   detectRetina: true,
+  //   pauseOnBlur: true,
+  //   pauseOnOutsideViewport: true,
+  //   particles: {
+  //     color: {value: '#fff'},
+  //     links: {
+  //       color: '#fff',
+  //       distance: 100,
+  //       enable: false,
+  //       opacity: 1,
+  //       width: 1,
+  //     },
+  //     move: {
+  //       direction: 'bottom',
+  //       enable: true,
+  //       outModes: {
+  //         default: 'out',
+  //       },
+  //       speed: 2,
+  //       straight: true,
+  //     },
+  //     number: {
+  //       density: {
+  //         enable: true,
+  //       },
+  //       value: 400,
+  //     },
+  //     opacity: {value: 1},
+  //     shape: {
+  //       type: 'start',
+  //     },
+
+  //     // size: 10,
+  //   },
+  // },
 ];

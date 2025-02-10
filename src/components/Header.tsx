@@ -10,9 +10,6 @@ import {Theme} from 'src/types/theme.type';
 import {AnimatePresenceFixedType, navigationTabs} from 'src/utils/constants';
 import Button from './buttons/Button';
 import ThemeButton from './buttons/ThemeButton';
-import Icon from './Icon';
-
-import {language} from 'ionicons/icons';
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -37,16 +34,11 @@ export const Header = () => {
       <motion.header
         initial={false}
         style={{height}}
-        className={`w-full fixed ${currentScrollY > 150 ? transparentClass : 'bg-transparent'}`}
+        className={`z-20 w-full fixed ${
+          currentScrollY > 150 ? transparentClass : 'bg-transparent'
+        }`}
       >
-        <motion.nav className={`h-full flex justify-end items-center space-x-4 px-4`}>
-          {/* <Button
-            className='flex justify-center items-center px-1 py-1.5 space-x-2'
-            onClick={() => navigate('/')}
-          >
-            <Icon src={home} size='40px' />
-          </Button> */}
-
+        <motion.nav className={`h-full flex justify-end items-center px-4 space-x-4`}>
           <motion.div className='flex'>
             {navigationTabs.map(({name, path}) => (
               <Button
@@ -59,7 +51,7 @@ export const Header = () => {
                 {location.pathname === path && (
                   <motion.div
                     layoutId='activeTab'
-                    className='absolute inset-0 bg-primary rounded-full'
+                    className='bg-primary absolute inset-0 rounded-full'
                     transition={{type: 'spring', stiffness: 500, damping: 30}}
                   />
                 )}
@@ -67,10 +59,7 @@ export const Header = () => {
               </Button>
             ))}
 
-            <div className='relative px-2 space-x-4 flex justify-center'>
-              <Button className=''>
-                <Icon src={language} size='30px' />
-              </Button>
+            <div className='relative flex justify-center px-2 space-x-4'>
               <ThemeButton size='30' />
             </div>
           </motion.div>

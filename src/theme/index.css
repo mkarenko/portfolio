@@ -15,7 +15,7 @@ body {
 
 /* THEME */
 .light {
-  --background: 351 100% 95%;
+  --background: 351 100% 95%; /* #FFD1DA*/
   --foreground: 351 5% 0%;
   --card: 351 50% 90%;
   --card-foreground: 351 5% 10%;
@@ -41,7 +41,7 @@ body {
 }
 
 .dark {
-  --background: 351 50% 5%;
+  --background: 351 50% 5%; /* #0F0708 */
   --foreground: 351 5% 90%;
   --card: 351 50% 0%;
   --card-foreground: 351 5% 90%;

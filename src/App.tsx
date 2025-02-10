@@ -1,8 +1,6 @@
-import {RefObject, useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {isMobile} from 'react-device-detect';
 import {useRecoilState, useRecoilValue, useSetRecoilState} from 'recoil';
-
-import {Container} from '@tsparticles/engine';
 
 import {firstVisitAtom} from './atoms/firstVisit.atom';
 import {languageAtom} from './atoms/language.atom';
@@ -17,13 +15,11 @@ import {cvEN, cvPL} from './utils/constants';
 
 export type HeaderProps = {
   theme: Theme;
-  particlesRef?: RefObject<Container | undefined>;
   handleDownloadPDF?: () => void;
   handleSwitchLanguage?: () => void;
 };
 
 const App = () => {
-  const particlesRef = useRef(null);
   const theme = useRecoilValue(themeAtom);
   const setFirstVisit = useSetRecoilState(firstVisitAtom);
   const [language, setLanguage] = useRecoilState(languageAtom);
@@ -81,13 +77,11 @@ const App = () => {
 
   return (
     <>
-      <ParticlesBackground ref={particlesRef} theme={theme} />
+      <ParticlesBackground theme={theme} />
       <FloatingTopButton />
 
       {deviceType === 'desktop' && <Header />}
-      {deviceType === 'mobile' && (
-        <Menu particlesRef={particlesRef} theme={theme} handleDownloadPDF={handleDownloadPDF} />
-      )}
+      {deviceType === 'mobile' && <Menu theme={theme} handleDownloadPDF={handleDownloadPDF} />}
 
       <Router />
     </>

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import {ReactNode, useRef} from 'react';
 
 import {motion} from 'motion/react';
 import {AnimatePresenceFixedType} from 'src/utils/constants';
@@ -14,16 +14,38 @@ const Modal = ({
   children: ReactNode;
   closeModal: (value: boolean) => void;
 }) => {
+  const modalRef = useRef<HTMLDivElement | null>(null);
   const close = () => closeModal(false);
+
+  // todo later
+  // useEffect(() => {
+  //   if (!modalRef.current) return;
+  //   const modal = modalRef.current;
+
+  //   const handleKeyDown = (event: KeyboardEvent) => {
+  //     if (event.key === 'Escape') close();
+  //   };
+
+  //   modal.addEventListener('keydown', handleKeyDown);
+
+  //   return () => {
+  //     modal.removeEventListener('keydown', handleKeyDown);
+  //   };
+  // }, []);
 
   return (
     <AnimatePresenceFixedType>
       <motion.div
+        ref={modalRef}
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}
         className='fixed z-50 -left-2 top-0 bottom-0 w-full h-full flex justify-center items-center bg-black bg-opacity-80'
         onClick={close}
+        onKeyDown={(e) => {
+          console.log(e);
+          e.key === 'Escape' && close();
+        }}
       >
         <motion.div
           onClick={(e) => e.stopPropagation()}

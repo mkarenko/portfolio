@@ -9,7 +9,7 @@ const FloatingTopButton = () => {
   return (
     <motion.div
       style={{opacity: visible}}
-      className='z-20 fixed bottom-10 right-10'
+      className='fixed right-10 bottom-10 z-10'
       animate={{y: [-10, 10, -10]}}
       transition={{
         duration: 2,
@@ -17,7 +17,7 @@ const FloatingTopButton = () => {
         repeatType: 'mirror',
       }}
     >
-      <button className='p-4 bg-card rounded-full shadow-lg rotate-180' onClick={handleScrollTop}>
+      <button className='bg-card p-4 rounded-full shadow-lg rotate-180' onClick={handleScrollTop}>
         <motion.svg
           xmlns='http://www.w3.org/2000/svg'
           width='24'

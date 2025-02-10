@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.0.3 ",
+  "version": "1.0.0 ",
   "private": false,
   "homepage": "https://mkarenko.com/",
   "packageManager": "yarn@1.22.22",

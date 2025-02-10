@@ -2,8 +2,8 @@ import {ColorType} from 'src/types/colors.type';
 
 export const colors: ColorType[] = [
   {id: 1, name: 'Default', hex: '#9E0030'},
-  {id: 2, name: 'White', hex: '#FFFFFF'},
-  {id: 3, name: 'Black', hex: '#000000'},
+  {id: 2, name: 'White', hex: '#fff'},
+  {id: 3, name: 'Black', hex: '#000'},
   {id: 4, name: 'Red', hex: '#FF0000'},
   {id: 5, name: 'Lime', hex: '#00FF00'},
   {id: 6, name: 'Blue', hex: '#0000FF'},
