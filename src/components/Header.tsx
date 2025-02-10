@@ -10,11 +10,18 @@ import {Theme} from 'src/types/theme.type';
 import {AnimatePresenceFixedType, navigationTabs} from 'src/utils/constants';
 import Button from './buttons/Button';
 import ThemeButton from './buttons/ThemeButton';
+import Icon from './Icon';
+
+import downloadIcon from '../assets/icons/download.svg';
 
 export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const {scrollY} = useScroll();
+
+  const devUrl2 = 'http://localhost:3000/portfolio/assets/mkarenko_cv_en.pdf';
+  const prodUrl2 = 'https://mkarenko.com/portfolio/assets/mkarenko_cv_en.pdf';
+  const pdfUrl = process.env.NODE_ENV === 'production' ? prodUrl2 : devUrl2;
 
   const theme = useRecoilValue<Theme>(themeAtom);
   const [currentScrollY, setCurrentScrollY] = useState<number>(0);
@@ -60,6 +67,13 @@ export const Header = () => {
             ))}
 
             <div className='relative flex justify-center px-2 space-x-4'>
+              {location.pathname === '/experience' && (
+                <Button>
+                  <a href={pdfUrl} target='_blank' rel='noreferrer'>
+                    <Icon src={downloadIcon} />
+                  </a>
+                </Button>
+              )}
               <ThemeButton size='30' />
             </div>
           </motion.div>
