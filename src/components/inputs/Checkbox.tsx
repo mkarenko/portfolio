@@ -35,6 +35,7 @@ export const Checkbox = ({
     setChecked({
       target: {name, checked: check},
     } as React.ChangeEvent<HTMLInputElement>);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleCheckClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {

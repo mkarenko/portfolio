@@ -22,7 +22,7 @@ export type HeaderProps = {
 const App = () => {
   const theme = useRecoilValue(themeAtom);
   const setFirstVisit = useSetRecoilState(firstVisitAtom);
-  const [language, setLanguage] = useRecoilState(languageAtom);
+  const [language] = useRecoilState(languageAtom);
 
   const [deviceType, setDeviceType] = useState<'mobile' | 'desktop'>(
     isMobile ? 'mobile' : 'desktop'
