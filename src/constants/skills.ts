@@ -159,18 +159,18 @@ export const skills: Skill[] = [
       'resources. REST APIs are stateless and typically exchange data in JSON format, making them ' +
       'widely used in web and mobile applications.',
   },
-  {
-    id: 14,
-    name: 'skill #14',
-    logo: apiLogo,
-    website: '',
-    description: '',
-  },
-  {
-    id: 15,
-    name: 'skill #14',
-    logo: apiLogo,
-    website: '',
-    description: '',
-  },
+  // {
+  //   id: 14,
+  //   name: 'skill #14',
+  //   logo: apiLogo,
+  //   website: '',
+  //   description: '',
+  // },
+  // {
+  //   id: 15,
+  //   name: 'skill #14',
+  //   logo: apiLogo,
+  //   website: '',
+  //   description: '',
+  // },
 ];

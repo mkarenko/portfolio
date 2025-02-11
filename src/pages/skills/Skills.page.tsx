@@ -3,12 +3,12 @@ import {skills} from '../../constants/skills';
 import SkillComponent from './Skill.component';
 
 const SkillsPage = () => (
-  <div className='pt-12 md:pt-10'>
+  <div className='pt-10'>
     <Cursor />
     {skills.map((s) => (
       <div
         key={s.id}
-        className='flex flex-col items-center justify-between w-full h-full py-8 md:py-16 px-5 md:p-10'
+        className='w-full h-full flex flex-col justify-between items-center px-5 py-8 md:p-10 md:py-16'
       >
         <SkillComponent
           key={s.id}

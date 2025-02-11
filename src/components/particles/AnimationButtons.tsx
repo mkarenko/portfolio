@@ -59,11 +59,7 @@ const AnimationButtons = ({
 
   return (
     <>
-      <Button
-        id='toggle-animation'
-        className='w-10 h-10 flex justify-center items-center'
-        onClick={toggleAnimation}
-      >
+      <Button id='toggle-animation' onClick={toggleAnimation}>
         <Icon src={playPauseIcon} size={iconSize} />
       </Button>
 

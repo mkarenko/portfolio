@@ -2,11 +2,11 @@ import {projects} from '../../constants/projects';
 import ProjectComponent from './Project.component';
 
 const ProjectsPage = () => (
-  <div className='lg:pt-20'>
+  <div className='pt-10'>
     {projects.map((p) => (
       <div
         key={p.id}
-        className='flex flex-col items-center justify-between w-full h-full py-16 px-5 md:p-10'
+        className='w-full h-full flex flex-col justify-between items-center px-5 py-8 md:p-10 md:py-16'
       >
         <ProjectComponent
           name={p.name}
