@@ -1,9 +1,18 @@
-name: Deploy React App to GitHub Pages
+name: Deploy GitHub Page
 
 on:
   push:
     branches:
       - master
+
+workflow_dispatch:
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
