@@ -19,6 +19,7 @@ const ExperiencePage = () => {
 
   const devUrl2 = 'http://localhost:3000/assets/mkarenko_cv_en.pdf';
   const prodUrl2 = 'https://mkarenko.com/assets/mkarenko_cv_en.pdf';
+
   const pdfUrl = process.env.NODE_ENV === 'production' ? prodUrl2 : devUrl2;
 
   return (
