@@ -12,10 +12,11 @@ const NotFoundPage: FC = () => {
 
       setCountdown((prevCountdown) => prevCountdown - 1);
     }, 1000);
-    return () => clearTimeout(timer); // eslint-disable-next-line
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line
   }, [countdown, setCountdown]);
 
-  return <div className='pt-20 flex justify-center text-2xl text-red-300'>404 Not Found</div>;
+  return <div className='flex justify-center pt-20 text-2xl text-red-300'>404 Not Found</div>;
 };
 
 export default NotFoundPage;
