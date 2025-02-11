@@ -7,6 +7,7 @@ import {motion} from 'motion/react';
 import {themeAtom} from 'src/atoms/theme.atom';
 import Icon from 'src/components/Icon';
 import Select from 'src/components/inputs/Select';
+import Loader from 'src/components/loader/loader';
 import {useAlert} from 'src/hooks/useAlert';
 import Button from '../../components/buttons/Button';
 import ContactButton from '../../components/buttons/ContactButton';
@@ -38,6 +39,7 @@ const ContactPage = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [defaultCountry, setDefaultCountry] = useState<Country>();
   const [captcha, setCaptcha] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const [formSent, setFormSent] = useState<boolean>(false);
   const [formData, setFormData] = useState<ContactFormType>({
     name: '',
@@ -89,6 +91,8 @@ const ContactPage = () => {
         setCountries(mappedCountries);
       } catch (error) {
         console.error('Failed to fetch countries:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -167,128 +171,136 @@ const ContactPage = () => {
   };
 
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center pt-20 md:flex-row md:justify-evenly md:items-center md:p-0 md:pt-32'>
-      <div className='flex flex-col items-start px-5 space-y-8 md:w-1/2'>
-        <div className='w-full text-6xl md:text-7xl'>have a question?</div>
-        <div className='text-xl text-start'>
-          You can call me on my mobile, send me mail or message me on LinkedIn. I also created this
-          form.
-        </div>
-        <div className='text-xl text-start'>
-          After filling and sending, I'll receive your contact info. If the form is sent
-          successfully, you'll get a confirmation on the email below.
-        </div>
+    <>
+      {loading && <Loader />}
 
-        <div className='mx-auto w-full flex flex-col items-center space-y-2 md:flex-col md:items-start sm:flex-row'>
-          <ContactButton text='+48 692 566 688' icon={smartphone} href='tel:+48 692 566 688' />
-          <ContactButton
-            text='m.karenko@outlook.com'
-            icon={mail}
-            href='mailto:m.karenko@outlook.com'
-          />
-          <ContactButton
-            text='Linkedin'
-            icon={link}
-            href='https://www.linkedin.com/in/m-karenko/'
-          />
-        </div>
-      </div>
+      {!loading && (
+        <div className='w-full h-full flex flex-col justify-center items-center pt-20 md:flex-row md:justify-evenly md:items-center md:p-0 md:pt-32'>
+          <div className='flex flex-col items-start px-5 space-y-8 md:w-1/2'>
+            <div className='w-full text-6xl md:text-7xl'>have a question?</div>
+            <div className='text-xl text-start'>
+              You can call me on my mobile, send me mail or message me on LinkedIn. I also created
+              this form.
+            </div>
+            <div className='text-xl text-start'>
+              After filling and sending, I'll receive your contact info. If the form is sent
+              successfully, you'll get a confirmation on the email below.
+            </div>
 
-      <div className='w-full px-5 py-10 md:w-1/3'>
-        <form
-          noValidate={formReady}
-          className='w-full flex flex-col justify-center items-center gap-y-3 text-lg'
-        >
-          <Input
-            type='text'
-            name='name'
-            maxLength={20}
-            placeholder='name*'
-            validate={validity.name}
-            value={formData.name}
-            onBlur={handleInputWarning}
-            onChange={handleDataChange}
-          />
-          <Input
-            type='email'
-            name='email'
-            maxLength={32}
-            placeholder='email*'
-            validate={validity.email}
-            value={formData.email}
-            onBlur={handleInputWarning}
-            onChange={handleDataChange}
-          />
-          <Input
-            type='tel'
-            name='phoneNumber'
-            maxLength={12}
-            placeholder='phone number'
-            value={formData.phoneNumber}
-            onChange={handleDataChange}
-          />
-          <Select
-            keyName='country'
-            items={countries}
-            defaultValue={
-              <>
-                <div>{defaultCountry?.flag}</div>
-                <div>{defaultCountry?.name}</div>
-              </>
-            }
-            renderSelected={(selected: Country) => (
-              <>
-                <div>{selected.flag}</div>
-                <div>{selected.name}</div>
-              </>
-            )}
-            renderItem={(item: Country) => (
-              <div className={`w-full flex justify-center items-center space-x-3`}>
-                <div>{item.flag}</div>
-                <div>{item.name}</div>
-              </div>
-            )}
-            onSelect={handleDataChange}
-          />
-          <Textarea
-            name='message'
-            placeholder='message'
-            maxLength={120}
-            value={formData.message}
-            onChange={handleDataChange}
-          />
-          <div className='w-full flex justify-center'>
-            <div className='w-full text-sm text-end md:text-lg'>*required</div>
+            <div className='mx-auto w-full flex flex-col items-center space-y-2 md:flex-col md:items-start sm:flex-row'>
+              <ContactButton text='+48 692 566 688' icon={smartphone} href='tel:+48 692 566 688' />
+              <ContactButton
+                text='m.karenko@outlook.com'
+                icon={mail}
+                href='mailto:m.karenko@outlook.com'
+              />
+              <ContactButton
+                text='Linkedin'
+                icon={link}
+                href='https://www.linkedin.com/in/m-karenko/'
+              />
+            </div>
           </div>
 
-          <motion.div
-            initial='initial'
-            animate='animate'
-            exit='exit'
-            whileHover='hover'
-            variants={captchaVariants}
-          >
-            <ReCAPTCHA
-              theme={theme}
-              sitekey='6LecdIAqAAAAAIwZ_dg3DQ5nGnPwx3xyN3YwgmnD'
-              onChange={(value) => setCaptcha(value)}
-            />
-          </motion.div>
+          <div className='w-full px-5 py-10 md:w-1/3'>
+            <form
+              // noValidate={formReady}
 
-          <Button
-            type='submit'
-            disabled={!formReady}
-            className='border-foreground px-4 py-2 font-semibold rounded-xl border-2 disabled:text-gray-600 disabled:bg-gray-300 disabled:cursor-not-allowed'
-            onClick={handleSubmit}
-          >
-            {!formReady ? 'Fill Form' : formSent ? <Icon src={checkmark} /> : 'Send'}
-          </Button>
-        </form>
-      </div>
+              // method='post'
+              className='w-full flex flex-col justify-center items-center gap-y-3 text-lg'
+            >
+              <Input
+                type='text'
+                name='name'
+                maxLength={20}
+                placeholder='name*'
+                validate={validity.name}
+                value={formData.name}
+                onBlur={handleInputWarning}
+                onChange={handleDataChange}
+              />
+              <Input
+                type='email'
+                name='email'
+                maxLength={32}
+                placeholder='email*'
+                validate={validity.email}
+                value={formData.email}
+                onBlur={handleInputWarning}
+                onChange={handleDataChange}
+              />
+              <Input
+                type='tel'
+                name='phoneNumber'
+                maxLength={12}
+                placeholder='phone number'
+                value={formData.phoneNumber}
+                onChange={handleDataChange}
+              />
+              <Select
+                keyName='country'
+                items={countries}
+                defaultValue={
+                  <>
+                    <div>{defaultCountry?.flag}</div>
+                    <div>{defaultCountry?.name}</div>
+                  </>
+                }
+                renderSelected={(selected: Country) => (
+                  <>
+                    <div>{selected.flag}</div>
+                    <div>{selected.name}</div>
+                  </>
+                )}
+                renderItem={(item: Country) => (
+                  <div className={`w-full flex justify-center items-center space-x-3`}>
+                    <div>{item.flag}</div>
+                    <div>{item.name}</div>
+                  </div>
+                )}
+                onSelect={handleDataChange}
+              />
+              <Textarea
+                name='message'
+                placeholder='message'
+                maxLength={120}
+                value={formData.message}
+                onChange={handleDataChange}
+              />
+              <div className='w-full flex justify-center'>
+                <div className='w-full text-sm text-end md:text-lg'>*required</div>
+              </div>
 
-      {/* render alerts */}
-      {alerts}
-    </div>
+              <motion.div
+                initial='initial'
+                animate='animate'
+                exit='exit'
+                whileHover='hover'
+                variants={captchaVariants}
+              >
+                <ReCAPTCHA
+                  theme={theme}
+                  sitekey='6LecdIAqAAAAAIwZ_dg3DQ5nGnPwx3xyN3YwgmnD'
+                  onChange={(value) => setCaptcha(value)}
+                />
+              </motion.div>
+
+              <Button
+                type='submit'
+                disabled={!formReady}
+                className='border-foreground px-4 py-2 font-semibold rounded-xl border-2 disabled:text-gray-600 disabled:bg-gray-300 disabled:cursor-not-allowed'
+                onClick={handleSubmit}
+              >
+                {!formReady ? 'Fill Form' : formSent ? <Icon src={checkmark} /> : 'Send'}
+              </Button>
+            </form>
+          </div>
+
+          {/* render alerts */}
+          {alerts}
+        </div>
+      )}
+    </>
   );
 };
 

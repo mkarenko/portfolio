@@ -1,6 +1,11 @@
+import {useRecoilValue} from 'recoil';
+
 import {motion, useScroll, useTransform} from 'motion/react';
+import {themeAtom} from 'src/atoms/theme.atom';
+import {transparentClass} from 'src/utils/constants';
 
 const FloatingTopButton = () => {
+  const theme = useRecoilValue(themeAtom);
   const {scrollY} = useScroll();
   const visible = useTransform(scrollY, [0, 100], [0, 1]);
 
@@ -17,7 +22,10 @@ const FloatingTopButton = () => {
         repeatType: 'mirror',
       }}
     >
-      <button className='bg-card p-4 rounded-full shadow-lg rotate-180' onClick={handleScrollTop}>
+      <button
+        className={`${transparentClass(theme)} p-4 rounded-full shadow-lg rotate-180`}
+        onClick={handleScrollTop}
+      >
         <motion.svg
           xmlns='http://www.w3.org/2000/svg'
           width='24'

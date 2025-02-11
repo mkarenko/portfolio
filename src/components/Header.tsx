@@ -19,8 +19,8 @@ export const Header = () => {
   const location = useLocation();
   const {scrollY} = useScroll();
 
-  const devUrl2 = 'http://localhost:3000/portfolio/assets/mkarenko_cv_en.pdf';
-  const prodUrl2 = 'https://mkarenko.com/portfolio/assets/mkarenko_cv_en.pdf';
+  const devUrl2 = 'http://localhost:3000/assets/cv/mkarenko_cv_en.pdf';
+  const prodUrl2 = 'https://mkarenko.com/assets/cv/mkarenko_cv_en.pdf';
   const pdfUrl = process.env.NODE_ENV === 'production' ? prodUrl2 : devUrl2;
 
   const theme = useRecoilValue<Theme>(themeAtom);
@@ -70,7 +70,7 @@ export const Header = () => {
               {location.pathname === '/experience' && (
                 <Button>
                   <a href={pdfUrl} target='_blank' rel='noreferrer'>
-                    <Icon src={downloadIcon} />
+                    <Icon src={downloadIcon} size='30px' />
                   </a>
                 </Button>
               )}

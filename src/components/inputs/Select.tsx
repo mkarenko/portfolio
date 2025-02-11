@@ -50,13 +50,15 @@ const Select = ({
     }
   }, [open]);
 
-  const handelSelect = (item: any) => {
+  const handleSelect = (item: any) => {
     if (!navRef.current) return;
+
     const selectName = navRef.current.getAttribute('id');
 
     onSelect({target: {name: selectName, value: item}});
     setSelected(item);
     setOpen(false);
+    console.log(navRef.current);
   };
 
   const handleHideSelect = (e: FocusEvent<HTMLElement, Element>) => {
@@ -77,6 +79,7 @@ const Select = ({
     >
       <motion.button
         ref={selectButtonRef}
+        type='button'
         initial={false}
         animate={{boxShadow: `0 0 0 2px ${color(0.7)}, 0 0 0 1px ${color(0)}`}}
         whileTap={{scale: 0.9}}
@@ -129,7 +132,7 @@ const Select = ({
             whileTap={{scale: 0.97}}
             variants={itemVariants}
             className={`${itemCss} py-2`}
-            onClick={() => handelSelect(item)}
+            onClick={() => handleSelect(item)}
           >
             {renderItem !== undefined ? renderItem(item) : <motion.div>{item.name}</motion.div>}
           </motion.li>
