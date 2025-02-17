@@ -9,7 +9,7 @@ import {githubURL, linkedinURL} from '../../utils/constants';
 import {logoGithub, logoLinkedin} from 'ionicons/icons';
 
 const HomePage = () => (
-  <div className='w-full flex-col p-4 pt-32 lg:px-10'>
+  <div className='w-full flex-col p-4 pt-32 bg-white lg:px-10'>
     {/* Typewriter text animation */}
     <Typewriter
       delay={1}
@@ -30,17 +30,17 @@ const HomePage = () => (
     </div>
 
     {/* Bottom buttons */}
-    <div className='w-full absolute bottom-5 left-0 right-0 px-10 flex justify-end items-center'>
+    <div className='w-full absolute right-0 left-0 bottom-5 flex justify-end items-center px-10'>
       {/* <div>Version: 1.2.3</div> */}
       <div className='flex justify-end space-x-4'>
         <Button
-          className='transition-transform transform rounded hover:scale-125'
+          className='transform rounded transition-transform hover:scale-125'
           onClick={() => (window.location.href = githubURL)}
         >
           <Icon src={logoGithub} size='40px' />
         </Button>
         <Button
-          className='transition-transform transform rounded hover:scale-110'
+          className='transform rounded transition-transform hover:scale-110'
           onClick={() => (window.location.href = linkedinURL)}
         >
           <Icon src={logoLinkedin} size='40px' />

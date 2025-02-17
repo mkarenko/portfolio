@@ -11,6 +11,7 @@ import Button from '../buttons/Button';
 import ThemeButton from '../buttons/ThemeButton';
 
 import type {Variants} from 'motion/dist/react';
+
 const Menu = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
   const navigate = useNavigate();
   const theme = useRecoilValue(themeAtom);
@@ -62,11 +63,10 @@ const Menu = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
   };
 
   const nav =
-    'w-screen h-screen overflow-y-hidden absolute inset-0 flex justify-center' +
-    transparentClass(theme);
+    'w-screen h-screen overflow-hidden fixed inset-0 flex justify-center' + transparentClass(theme);
 
   return (
-    <motion.nav initial='closed' animate={open ? 'open' : 'close'} className='fixed z-10'>
+    <motion.nav initial={false} animate={open ? 'open' : 'close'} className='fixed z-10'>
       <Button className='cursor-pointer fixed top-[20px] right-[15px] z-20' onClick={toggleMenu}>
         <svg width='25' height='25' viewBox='0 0 25 25'>
           <Path
@@ -131,18 +131,18 @@ const Path = (props: PathProps) => (
 );
 
 const sidebarAnimations = {
-  open: (height = window.innerHeight) => ({
-    clipPath: `circle(${height + 200}px at calc(100% - 40px) 40px)`,
+  open: {
+    x: 0,
     transition: {
       type: 'spring',
       stiffness: 20,
       restDelta: 1,
     },
-  }),
+  },
   close: {
-    clipPath: 'circle(25px at calc(100% - 30px) 30px)',
+    x: '100%',
     transition: {
-      delay: 0.2,
+      delay: 0.5,
       type: 'spring',
       stiffness: 400,
       damping: 40,
@@ -154,7 +154,7 @@ const fadeInVariant = {
   open: {
     opacity: 1,
     transition: {
-      delay: 1,
+      delay: 0.5,
     },
   },
   close: {opacity: 0},
@@ -163,7 +163,7 @@ const fadeInVariant = {
 const ulVariant = {
   open: {
     transition: {
-      delayChildren: 1,
+      delayChildren: 0.5,
       staggerChildren: 0.18,
     },
   },

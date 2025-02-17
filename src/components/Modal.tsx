@@ -17,7 +17,7 @@ const Modal = ({
   const modalRef = useRef<HTMLDivElement | null>(null);
   const close = () => closeModal(false);
 
-  // todo later
+  // TODO later
   // useEffect(() => {
   //   if (!modalRef.current) return;
   //   const modal = modalRef.current;
@@ -40,21 +40,22 @@ const Modal = ({
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}
-        className='fixed z-50 -left-2 top-0 bottom-0 w-full h-full flex justify-center items-center bg-black bg-opacity-80'
+        className='-left-2 bg-opacity-80 w-full h-full fixed top-0 bottom-0 z-50 flex justify-center items-center bg-black'
         onClick={close}
         onKeyDown={(e) => {
           console.log(e);
+
           e.key === 'Escape' && close();
         }}
       >
+        {/* TODO */}
         <motion.div
           onClick={(e) => e.stopPropagation()}
           variants={dropInVariants}
           initial='hidden'
           animate='visible'
           exit='exit'
-          className='z-50 w-full h-full md:w-1/5 md:h-1/2 p-8 flex flex-col justify-evenly
-          md:justify-between md:items-center bg-card md:rounded-2xl md:border-2 md:border-border'
+          className='bg-card w-full h-full z-50 flex flex-col justify-evenly p-8 md:border-border md:w-1/5 md:h-1/2 md:justify-between md:items-center md:rounded-2xl md:border-2'
         >
           <div className='absolute top-5 right-5 md:hidden'>
             <Button onClick={close}>
