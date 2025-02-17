@@ -1,9 +1,7 @@
-import 'ionicons/icons';
 import './theme/index.css';
 
 import {StrictMode} from 'react';
 import ReactDOM from 'react-dom/client';
-import {pdfjs} from 'react-pdf';
 import {HashRouter} from 'react-router-dom';
 import {RecoilRoot} from 'recoil';
 
@@ -20,8 +18,3 @@ root.render(
     </StrictMode>
   </HashRouter>
 );
-
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
-  import.meta.url
-).toString();

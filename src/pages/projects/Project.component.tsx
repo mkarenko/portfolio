@@ -3,7 +3,8 @@ import Image from '../../components/Image';
 import {skills} from '../../constants/skills';
 import {cardClass} from '../../utils/constants';
 
-import {logoAppleAppstore, logoGooglePlaystore} from 'ionicons/icons';
+import appStoreLogo from '../../assets/logo/appstore.svg';
+import playStoreLogo from '../../assets/logo/playstore.svg';
 
 type Props = {
   name: string;
@@ -54,12 +55,12 @@ const ProjectComponent = ({
         </a>
         {android && (
           <a href={android} target='_blank' rel='noopener noreferrer'>
-            <Icon src={logoGooglePlaystore} size='40px' className='hover:cursor-pointer' />
+            <Icon src={appStoreLogo} size='40px' className='hover:cursor-pointer' />
           </a>
         )}
         {ios && (
           <a href={ios} target='_blank' rel='noopener noreferrer'>
-            <Icon src={logoAppleAppstore} size='40px' className='hover:cursor-pointer' />
+            <Icon src={playStoreLogo} size='40px' className='hover:cursor-pointer' />
           </a>
         )}
       </div>

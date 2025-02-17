@@ -6,10 +6,11 @@ import Cubes from '../../components/cubes/Cubes';
 import Icon from '../../components/Icon';
 import {githubURL, linkedinURL} from '../../utils/constants';
 
-import {logoGithub, logoLinkedin} from 'ionicons/icons';
+import githubLogo from '../../assets/logo/github.svg';
+import linkedinLogo from '../../assets/logo/linkedin.svg';
 
 const HomePage = () => (
-  <div className='w-full flex-col p-4 pt-32 bg-white lg:px-10'>
+  <div className='w-full flex-col p-4 pt-32 lg:px-10'>
     {/* Typewriter text animation */}
     <Typewriter
       delay={1}
@@ -37,13 +38,13 @@ const HomePage = () => (
           className='transform rounded transition-transform hover:scale-125'
           onClick={() => (window.location.href = githubURL)}
         >
-          <Icon src={logoGithub} size='40px' />
+          <Icon src={githubLogo} size='40px' />
         </Button>
         <Button
           className='transform rounded transition-transform hover:scale-110'
           onClick={() => (window.location.href = linkedinURL)}
         >
-          <Icon src={logoLinkedin} size='40px' />
+          <Icon src={linkedinLogo} size='40px' />
         </Button>
       </div>
     </div>
