@@ -4,7 +4,7 @@ This is a portfolio project built using React.js with TypeScript and TailwindCSS
 
 ## Version
 
-**Current Version:** 1.0.0
+**Current Version:** 1.0.1
 
 ## URL
 
@@ -50,14 +50,19 @@ portfolio
 
 ## Tech Stack
 
-- **[React.js with TypeScript](https://react.dev/)** – Front-end framework for building interactive UIs.
+- **[React.js with TypeScript](https://react.dev/)** – Front-end framework for building interactive
+  UIs.
 - **[React Router](https://reactrouter.com/)** – Declarative routing for React applications.
 - **[Recoil](https://recoiljs.org/)** – State management for React apps.
-- **[Supabase](https://supabase.com/)** – Backend as a Service (BaaS) providing database and authentication.
+- **[Supabase](https://supabase.com/)** – Backend as a Service (BaaS) providing database and
+  authentication.
 - **[Tailwind CSS](https://tailwindcss.com/)** – Utility-first CSS framework for styling.
-- **[React Device Detect](https://www.npmjs.com/package/react-device-detect)** – Detects device type (mobile, tablet, desktop).
+- **[React Device Detect](https://www.npmjs.com/package/react-device-detect)** – Detects device type
+  (mobile, tablet, desktop).
 - **[EmailJS](https://www.emailjs.com/)** – Service for sending emails directly from the front end.
 - **[Motion](https://motion.dev/)** – Animation library for React.
-- **[React Google reCAPTCHA ](https://www.npmjs.com/package/react-google-recaptcha)** – Google reCAPTCHA integration for security.
+- **[React Google reCAPTCHA ](https://www.npmjs.com/package/react-google-recaptcha)** – Google
+  reCAPTCHA integration for security.
 - **[i18next](https://www.i18next.com/)** – Internationalization framework for React.
-- **[GitHub Pages](https://pages.github.com/)** – Hosting service for deploying static sites directly from GitHub.
+- **[GitHub Pages](https://pages.github.com/)** – Hosting service for deploying static sites
+  directly from GitHub.
