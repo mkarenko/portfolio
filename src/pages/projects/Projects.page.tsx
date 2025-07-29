@@ -6,11 +6,7 @@ const ProjectsPage = () => (
     {projects.map((p) => (
       <div
         key={p.id}
-<<<<<<< HEAD
-        className='w-full h-full flex flex-col justify-between items-center px-5 py-8 md:p-10 md:py-16'
-=======
         className='flex flex-col items-center justify-between w-full h-full px-5 py-8 md:p-10 md:py-16'
->>>>>>> 471142f (Fixed few issues)
       >
         <ProjectComponent
           name={p.name}

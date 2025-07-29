@@ -13,15 +13,9 @@ const ExperiencePage = () => {
   const pdfUrl = process.env.NODE_ENV === 'production' ? prodUrl : devUrl;
 
   return (
-<<<<<<< HEAD
-    <div className='mx-auto max-w-3xl p-6 py-14 md:py-24'>
-      {/* Seperator */}
-      <div className='border-foreground pb-4 border-b' />
-=======
     <div className='max-w-3xl p-6 mx-auto py-14 md:py-24'>
       {/* Seperator */}
       <div className='pb-4 border-b border-foreground' />
->>>>>>> 471142f (Fixed few issues)
 
       <section className='mt-6'>
         <h3 className='text-4xl font-semibold'>About Me</h3>
@@ -34,30 +28,18 @@ const ExperiencePage = () => {
       </section>
 
       {/* Seperator */}
-<<<<<<< HEAD
-      <div className='border-foreground pb-4 border-b' />
-=======
       <div className='pb-4 border-b border-foreground' />
->>>>>>> 471142f (Fixed few issues)
 
       <div className='flex flex-col md:flex-row'>
         <div className='flex flex-col'>
           <section className='mt-6'>
             <h3
-<<<<<<< HEAD
-              className='text-3xl font-semibold text-gray-500 cursor-pointer hover:text-primary'
-=======
               className='text-3xl font-semibold cursor-pointer hover:text-primary'
->>>>>>> 471142f (Fixed few issues)
               onClick={() => navigate('/skills')}
             >
               Technologies
             </h3>
-<<<<<<< HEAD
-            <ul className='mt-2 ml-4 list-disc text-gray-200'>
-=======
             <ul className='mt-2 ml-4 list-disc'>
->>>>>>> 471142f (Fixed few issues)
               <li>React.js</li>
               <li>JavaScript</li>
               <li>TypeScript</li>
@@ -76,13 +58,8 @@ const ExperiencePage = () => {
           </section>
 
           <section className='mt-6'>
-<<<<<<< HEAD
-            <h3 className='text-3xl font-semibold text-gray-500'>Languages</h3>
-            <ul className='gap-4 mt-2 text-gray-200'>
-=======
             <h3 className='text-3xl font-semibold '>Languages</h3>
             <ul className='gap-4 mt-2 '>
->>>>>>> 471142f (Fixed few issues)
               <li className='flex space-x-4'>
                 <div>Polish (Native)</div>
                 {/* <Button>
@@ -99,11 +76,7 @@ const ExperiencePage = () => {
           </section>
 
           <section className='mt-6'>
-<<<<<<< HEAD
-            <h3 className='text-3xl font-semibold text-gray-500 cursor-pointer hover:text-primary'>
-=======
             <h3 className='text-3xl font-semibold cursor-pointer hover:text-primary'>
->>>>>>> 471142f (Fixed few issues)
               <a href={'https://www.wfis.uni.lodz.pl/'} target='_blank' rel='noreferrer'>
                 Education
               </a>
@@ -116,14 +89,6 @@ const ExperiencePage = () => {
 
         <div className='flex flex-col'>
           <section className='mt-6'>
-<<<<<<< HEAD
-            <h3 className='text-3xl font-semibold text-gray-500'>Experience</h3>
-            <ul className='pl-5 mt-4 space-y-6 list-disc text-gray-200'>
-              <li>
-                <h4 className='text-xl font-medium cursor-pointer hover:text-primary hover:scale-100'>
-                  <a href={'https://billogstudio.com/'} target='_blank' rel='noreferrer'>
-                    Billog Studio (2021 - present)
-=======
             <h3 className='text-3xl font-semibold '>Experience</h3>
             <ul className='pl-5 mt-4 space-y-6 list-disc'>
               <li>
@@ -141,7 +106,6 @@ const ExperiencePage = () => {
                 <h4 className='text-xl font-medium cursor-pointer hover:text-primary hover:scale-100'>
                   <a href={'https://billogstudio.com/'} target='_blank' rel='noreferrer'>
                     Billog Studio (2021 - 2025)
->>>>>>> 471142f (Fixed few issues)
                   </a>
                 </h4>
                 <p className='italic'>Junior Front-end Developer</p>
@@ -181,28 +145,17 @@ const ExperiencePage = () => {
       </div>
 
       {/* Seperator */}
-<<<<<<< HEAD
-      <div className='border-foreground pb-4 border-b' />
-
-      {isMobile && (
-        <Button className='absolute top-5 left-5 z-10'>
-=======
       <div className='pb-4 border-b border-foreground' />
 
       {isMobile && (
         <Button className='absolute z-10 top-5 left-5'>
->>>>>>> 471142f (Fixed few issues)
           <a href={pdfUrl} target='_blank' rel='noreferrer'>
             <Icon src={downloadIcon} size='32px' />
           </a>
         </Button>
       )}
       {isDesktop && (
-<<<<<<< HEAD
-        <Button className='fixed bottom-5 left-20 z-10'>
-=======
         <Button className='fixed z-10 bottom-5 left-20'>
->>>>>>> 471142f (Fixed few issues)
           <a href={pdfUrl} target='_blank' rel='noreferrer'>
             <Icon src={downloadIcon} size='32px' />
           </a>
