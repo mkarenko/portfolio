@@ -92,7 +92,11 @@ const ParticlesBackground = ({theme}: {theme: Theme}) => {
         <Particles id='tsparticles' particlesLoaded={particlesLoaded} options={options} />
       </div>
       {isDesktop && (
+<<<<<<< HEAD
         <div className='fixed bottom-5 left-5 z-10 flex justify-center items-center space-x-2'>
+=======
+        <div className='fixed z-10 flex items-center justify-center space-x-2 bottom-5 left-5'>
+>>>>>>> 471142f (Fixed few issues)
           <AnimationButtons
             theme={theme}
             iconSize='32px'

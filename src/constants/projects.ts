@@ -57,7 +57,11 @@ export const projects: Project[] = [
     framework: 'React.js',
     technologies: [1, 4, 5, 6, 8],
     icon: 'https://play-lh.googleusercontent.com/_tO2w6iudACXs3QEaAp32PMkCoiYNZTe1FeDNTB8FP7RV9UZMECOEfgIoBJesAy96pI',
+<<<<<<< HEAD
     logo: 'https://moremoda.at/wp-content/uploads/2023/03/a2.png',
+=======
+    logo: 'https://www.moremoda.at/public/images/area/179/a2-orig.webp?temp=23122024165449',
+>>>>>>> 471142f (Fixed few issues)
     website: 'https://app.moremoda.at/',
     android: 'https://play.google.com/store/apps/details?id=at.saschasteiner.moremoda',
     ios: 'https://apps.apple.com/at/app/more-moda/id6450482534',
@@ -85,7 +89,11 @@ export const projects: Project[] = [
     framework: 'Xamarin',
     technologies: [7, 9, 10, 11, 12, 13, 14, 15],
     icon: 'https://immoception.net/wp-content/uploads/2022/10/favicon-immoception.png',
+<<<<<<< HEAD
     logo: 'https://immoception.net/wp-content/uploads/2022/08/immocatpion-logo-768x557.png',
+=======
+    logo: 'https://immoception.net/wp-content/uploads/2022/08/immoception-logo.webp',
+>>>>>>> 471142f (Fixed few issues)
     website: 'https://immoception.net/',
     android: 'https://play.google.com/store/apps/details?id=net.immoception.app',
     ios: 'https://apps.apple.com/at/app/immoception/id1531186111',
@@ -106,6 +114,7 @@ export const projects: Project[] = [
     ios: 'https://apps.apple.com/at/app/immowert4you/id1600685778',
     themeColor: '#ffffff',
   },
+<<<<<<< HEAD
   {
     id: 8,
     name: 'Kluu',
@@ -121,6 +130,23 @@ export const projects: Project[] = [
     ios: '',
     themeColor: '#07ae53',
   },
+=======
+  // {
+  //   id: 8,
+  //   name: 'Kluu',
+  //   description:
+  //     'Kluu serves as a comprehensive digital network connecting individuals and businesses. The platform is aimed at fostering communication and collaboration through a robust messaging system, event management tools, and community engagement features. Kluu Connect prioritizes user interaction, making it easier for people to network, share ideas, and create valuable connections within their communities.',
+  //   language: 'C#',
+  //   framework: 'Xamarin',
+  //   technologies: [7, 9, 10, 11, 12, 13, 14, 15],
+  //   website: 'https://kluu-connect.com/',
+  //   icon: 'https://kluu-connect.com/wp-content/uploads/2021/09/cropped-KLuu-Logo-270x270.png',
+  //   logo: 'https://kluu-connect.com/wp-content/uploads/2022/12/KLuU-Schriftzug-weis_ohneHG.png-768x307.png',
+  //   android: '',
+  //   ios: '',
+  //   themeColor: '#07ae53',
+  // },
+>>>>>>> 471142f (Fixed few issues)
   {
     id: 9,
     name: 'Portoflio',
@@ -130,8 +156,28 @@ export const projects: Project[] = [
     framework: 'React.js',
     technologies: [1, 5, 8, 9, 10],
     website: 'https://mkarenko.com/',
+<<<<<<< HEAD
     icon: 'https://mkarenko.com/assets/icon/icon-192-maskable.png',
     logo: 'https://mkarenko.com/assets/icon/icon-192-maskable.png',
+=======
+    icon: 'http://localhost:3000/assets/icon/icon-transparent.png',
+    logo: 'http://localhost:3000/assets/icon/icon-transparent.png',
+    android: '',
+    ios: '',
+    themeColor: '#ffffff',
+  },
+  {
+    id: 9,
+    name: 'ZapZap',
+    description:
+      'I’m a contributor and I translated the ZapZap application, which is a Linux WhatsApp web app with a native application experience.',
+    language: 'TypeScript',
+    framework: 'React.js',
+    technologies: [9, 10],
+    website: 'https://rtosta.com/zapzap/',
+    icon: 'https://raw.githubusercontent.com/rafatosta/zapzap/7645b66381c31a51890cd71ac7c5cad4d9cd8807/share/icons/com.rtosta.zapzap.svg',
+    logo: 'https://raw.githubusercontent.com/rafatosta/zapzap/refs/heads/main/share/screenshot/dark.png',
+>>>>>>> 471142f (Fixed few issues)
     android: '',
     ios: '',
     themeColor: '#ffffff',

@@ -1,7 +1,11 @@
 import {forwardRef, useEffect, useState} from 'react';
 import {useRecoilValue} from 'recoil';
 
+<<<<<<< HEAD
 import {HTMLMotionProps, motion} from 'framer-motion'; // Zmienione na 'framer-motion'
+=======
+import {HTMLMotionProps, motion} from 'framer-motion';
+>>>>>>> 471142f (Fixed few issues)
 import {themeAtom} from '../atoms/theme.atom';
 
 type IconProps = HTMLMotionProps<'div'> & {

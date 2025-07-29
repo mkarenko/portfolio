@@ -99,7 +99,11 @@ const Cubes = () => (
               onClick={handleBoxNavigation}
             >
               <div className='top' style={{background: _.themeColor}}>
+<<<<<<< HEAD
                 <img alt={_.name} src={_.icon} className='w-full h-full object-cover' />
+=======
+                <img alt={_.name} src={_.icon} className='object-cover w-full h-full' />
+>>>>>>> 471142f (Fixed few issues)
               </div>
               <div className='left' style={{background: _.themeColor}} />
               <div className='front' style={{background: _.themeColor}} />
