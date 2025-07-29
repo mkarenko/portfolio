@@ -95,11 +95,7 @@ const Menu = ({handleDownloadPDF, handleSwitchLanguage}: HeaderProps) => {
       <motion.div variants={sidebarAnimations} className={nav}>
         <motion.ul
           variants={ulVariant}
-<<<<<<< HEAD
-          className='flex flex-col justify-center items-center space-y-10'
-=======
           className='flex flex-col items-center justify-center space-y-10'
->>>>>>> 471142f (Fixed few issues)
         >
           {navigationTabs.map((navItem) => (
             <motion.li key={navItem.id} whileHover={{scale: 1.2}} whileTap={{scale: 0.95}}>

@@ -36,32 +36,20 @@ const ProjectComponent = ({
 
   return (
     <div className={cardClass}>
-<<<<<<< HEAD
-      <img alt='logo' src={logo} className='w-full h-1/3 row-start-1' />
-=======
       <img alt='logo' src={logo} className='w-full row-start-1 h-1/3' />
->>>>>>> 471142f (Fixed few issues)
       <div className='text-2xl font-bold'>{name}</div>
       <div>{description}</div>
       {skillDetails.length > 0 && (
         <div className='grid grid-cols-1 gap-4 md:grid-cols-3 sm:grid-cols-2'>
           {skillDetails.map((s) => (
-<<<<<<< HEAD
-            <div key={s.id} className='flex items-center p-2 space-x-4 rounded border shadow'>
-=======
             <div key={s.id} className='flex items-center p-2 space-x-4 border rounded shadow'>
->>>>>>> 471142f (Fixed few issues)
               <img alt={s.name} src={s.logo} className='w-10 h-10' />
               <strong>{s.name}</strong>
             </div>
           ))}
         </div>
       )}
-<<<<<<< HEAD
-      <div className='flex justify-end items-center space-x-5'>
-=======
       <div className='flex items-center justify-end space-x-5'>
->>>>>>> 471142f (Fixed few issues)
         <a href={website} target='_blank' rel='noopener noreferrer'>
           <Image src={icon} width='50px' height='50px' className='rounded-full' />
         </a>
